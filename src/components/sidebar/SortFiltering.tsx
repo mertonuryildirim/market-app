@@ -1,5 +1,5 @@
 import React from 'react';
-import './SortFiltering.css';
+import './Sidebar.css';
 
 const SortFiltering = () => {
     return (
