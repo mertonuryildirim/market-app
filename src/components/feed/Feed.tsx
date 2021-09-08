@@ -1,6 +1,7 @@
 import React from 'react';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
+import ProductCard from './ProductCard';
 
 const Feed = () => {
     return (
@@ -11,10 +12,14 @@ const Feed = () => {
 
             <div className="card">
                 <div className="container">
-                    <h4>
-                        <b>Card Header</b>
-                    </h4>
-                    <p>Card Content</p>
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
                 </div>
             </div>
         </div>
