@@ -12,3 +12,9 @@
     margin-right: auto;
     padding: 0 10px;
 }
+
+.app-footer {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
