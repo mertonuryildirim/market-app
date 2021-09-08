@@ -1,5 +1,5 @@
 function App() {
-  return <div>Getir Market App</div>;
+    return <div>asd</div>;
 }
 
 export default App;
