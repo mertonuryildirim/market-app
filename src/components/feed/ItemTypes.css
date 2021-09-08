@@ -1,0 +1,24 @@
+.item-types {
+    display: flex;
+}
+
+.item-types > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    color: var(--market-color-2);
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: u;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background-color: #f2f0fd;
+}
+
+.item-types > button:hover,
+.item-types > button:focus {
+    background-color: var(--market-color-2);
+    color: white;
+}
