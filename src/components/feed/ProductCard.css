@@ -5,10 +5,24 @@
     font-family: arial;
     max-width: 150px;
     margin-bottom: 20px;
+    border-radius: 10%;
 }
 
 .product-card > img {
     width: 100%;
+}
+
+.product-card-image {
+    border: 0.1px solid lightgray;
+    border-radius: 5%;
+    padding: 12px 5px;
+}
+
+.product-card-image > span {
+    height: 100px;
+    width: 110px;
+    background-color: #bbb;
+    display: inline-block;
 }
 
 .product-card > p {
@@ -26,6 +40,7 @@
     justify-content: flex-start;
     display: flex;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .product-card > button {
@@ -37,7 +52,8 @@
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
+    border-radius: 5%;
 }
 
 .product-card > button:hover {

@@ -4,7 +4,11 @@ import './ProductCard.css';
 const ProductCard = () => {
     return (
         <div className="product-card">
-            <img src="" alt="" />
+            <div className="product-card-image">
+                <span>
+                    <img src="" alt="" />
+                </span>
+            </div>
             <p className="product-card-price">₺ 19.99</p>
             <p>Gorgeous Office Mug</p>
             <button>Add</button>

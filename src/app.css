@@ -40,4 +40,5 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     max-width: fit-content;
+    margin-top: 15px;
 }
