@@ -1,0 +1,26 @@
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: var(--market-color-2);
+    justify-content: space-evenly;
+    border-bottom: 0.1px solid lightgray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    z-index: 999;
+}
+
+.header-center {
+    display: flex;
+}
+
+.header-center > img {
+    object-fit: contain;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header-right {
+    display: flex;
+}
