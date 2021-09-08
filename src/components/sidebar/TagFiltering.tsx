@@ -3,8 +3,10 @@ import './Sidebar.css';
 
 const TagFiltering = () => {
     return (
-        <div className="sidebar-filter">
-            <h1>Tags</h1>
+        <div className="card">
+            <div className="container">
+                <input placeholder="Search tag" />
+            </div>
         </div>
     );
 };

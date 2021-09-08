@@ -7,15 +7,21 @@ import TagFiltering from './TagFiltering';
 const Sidebar = () => {
     return (
         <div className="sidebar">
-            <div>
-                <h4>Sorting</h4>
-                <SortFiltering />
+            <div className="sidebar-filters">
+                <div>
+                    <h4>Sorting</h4>
+                    <SortFiltering />
+                </div>
 
-                <h4>Brands</h4>
-                <BrandFiltering />
+                <div>
+                    <h4>Brands</h4>
+                    <BrandFiltering />
+                </div>
 
-                <h4>Tags</h4>
-                <TagFiltering />
+                <div>
+                    <h4>Tags</h4>
+                    <TagFiltering />
+                </div>
             </div>
         </div>
     );

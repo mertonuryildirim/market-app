@@ -3,8 +3,10 @@ import './Sidebar.css';
 
 const BrandFiltering = () => {
     return (
-        <div className="sidebar-filter">
-            <h1>Brands</h1>
+        <div className="card">
+            <div className="container">
+                <input placeholder="Search brand" />
+            </div>
         </div>
     );
 };
