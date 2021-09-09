@@ -1,7 +1,12 @@
 import React from 'react';
+import { Company } from '../../types/company';
 import './Sidebar.css';
 
-const BrandFiltering = () => {
+interface BrandFilteringProps {
+    companies: Company[];
+}
+
+const BrandFiltering: React.FC<BrandFilteringProps> = ({ companies }) => {
     return (
         <div className="card">
             <div className="container">

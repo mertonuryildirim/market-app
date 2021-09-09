@@ -1,7 +1,12 @@
 import React from 'react';
+import { Item } from '../../types/item';
 import './Sidebar.css';
 
-const TagFiltering = () => {
+interface TagFilteringProps {
+    items: Item[];
+}
+
+const TagFiltering: React.FC<TagFilteringProps> = ({ items }) => {
     return (
         <div className="card">
             <div className="container">

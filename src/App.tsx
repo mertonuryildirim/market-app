@@ -34,7 +34,7 @@ function App() {
             {/* App Body */}
             <div className="app-body">
                 {/* Sidebar */}
-                <Sidebar />
+                <Sidebar companies={companies} items={items} />
 
                 {/* Feed */}
                 <Feed items={items} />
