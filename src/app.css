@@ -7,7 +7,7 @@
 .app-body {
     display: flex;
     height: 100vh;
-    max-width: 1300px;
+    max-width: 1550px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
@@ -45,6 +45,12 @@ h6 {
     flex-wrap: wrap;
     max-width: fit-content;
     margin-top: 15px;
+}
+
+.card-basket {
+    border: 6px;
+    border-style: solid;
+    border-color: var(--market-color-2);
 }
 
 .pagination {
