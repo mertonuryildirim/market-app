@@ -2,8 +2,8 @@ import { CompanyAction, CompanyState } from '../../types/company';
 
 const defaultState: CompanyState = {
     companies: [],
-    loading: false,
-    error: '',
+    loadingCompany: false,
+    errorCompany: '',
 };
 
 const companyReducer = (
@@ -12,14 +12,18 @@ const companyReducer = (
 ) => {
     switch (action.type) {
         case 'GET_COMPANIES':
-            return { ...state, loading: true, error: '' };
+            return { ...state, loadingCompany: true, errorCompany: '' };
         case 'GET_COMPANIES_SUCCESS':
-            return { ...state, loading: false, companies: action.payload };
+            return {
+                ...state,
+                loadingCompany: false,
+                companies: action.payload,
+            };
         case 'GET_COMPANIES_ERROR':
             return {
                 ...state,
-                loading: false,
-                error: 'Error fetching companies.!',
+                loadingCompany: false,
+                errorCompany: 'Error fetching companies.!',
             };
         default:
             return state;

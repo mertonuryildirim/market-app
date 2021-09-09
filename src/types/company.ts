@@ -13,8 +13,8 @@ export interface Company {
 
 export interface CompanyState {
     companies: Company[];
-    loading: boolean;
-    error: string;
+    loadingCompany: boolean;
+    errorCompany: string;
 }
 
 export interface GET_COMPANIES {
