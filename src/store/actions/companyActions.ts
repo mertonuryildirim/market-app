@@ -1,14 +1,15 @@
 import { CompanyAction, Company } from '../../types/company';
+import { companyActionTypes } from './actionTypes';
 
 export const getCompanies = (): CompanyAction => ({
-    type: 'GET_COMPANIES',
+    type: companyActionTypes.GET_COMPANIES,
 });
 
 export const getCompaniesSuccess = (companies: Company[]): CompanyAction => ({
-    type: 'GET_COMPANIES_SUCCESS',
+    type: companyActionTypes.GET_COMPANIES_SUCCESS,
     payload: companies,
 });
 
 export const getCompaniesError = (): CompanyAction => ({
-    type: 'GET_COMPANIES_ERROR',
+    type: companyActionTypes.GET_COMPANIES_ERROR,
 });

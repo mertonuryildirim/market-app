@@ -1,3 +1,5 @@
+import { companyActionTypes } from '../store/actions/actionTypes';
+
 export interface Company {
     slug: string;
     name: string;
@@ -15,17 +17,17 @@ export interface CompanyState {
     error: string;
 }
 
-interface GET_COMPANIES {
-    type: 'GET_COMPANIES';
+export interface GET_COMPANIES {
+    type: typeof companyActionTypes.GET_COMPANIES;
 }
 
-interface GET_COMPANIES_SUCCESS {
-    type: 'GET_COMPANIES_SUCCESS';
+export interface GET_COMPANIES_SUCCESS {
+    type: typeof companyActionTypes.GET_COMPANIES_SUCCESS;
     payload: Company[];
 }
 
-interface GET_COMPANIES_ERROR {
-    type: 'GET_COMPANIES_ERROR';
+export interface GET_COMPANIES_ERROR {
+    type: typeof companyActionTypes.GET_COMPANIES_ERROR;
 }
 
 export type CompanyAction =

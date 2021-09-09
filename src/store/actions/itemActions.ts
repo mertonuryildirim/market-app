@@ -1,14 +1,15 @@
 import { ItemAction, Item } from '../../types/item';
+import { itemActionTypes } from './actionTypes';
 
 export const getItems = (): ItemAction => ({
-    type: 'GET_ITEMS',
+    type: itemActionTypes.GET_ITEMS,
 });
 
 export const getItemsSuccess = (items: Item[]): ItemAction => ({
-    type: 'GET_ITEMS_SUCCESS',
+    type: itemActionTypes.GET_ITEMS_SUCCESS,
     payload: items,
 });
 
 export const getItemsError = (): ItemAction => ({
-    type: 'GET_ITEMS_ERROR',
+    type: itemActionTypes.GET_ITEMS_ERROR,
 });

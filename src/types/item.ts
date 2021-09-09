@@ -1,3 +1,5 @@
+import { itemActionTypes } from '../store/actions/actionTypes';
+
 export interface Item {
     tags: string[];
     price: number;
@@ -15,17 +17,17 @@ export interface ItemState {
     error: string;
 }
 
-interface GET_ITEMS {
-    type: 'GET_ITEMS';
+export interface GET_ITEMS {
+    type: typeof itemActionTypes.GET_ITEMS;
 }
 
-interface GET_ITEMS_SUCCESS {
-    type: 'GET_ITEMS_SUCCESS';
+export interface GET_ITEMS_SUCCESS {
+    type: typeof itemActionTypes.GET_ITEMS_SUCCESS;
     payload: Item[];
 }
 
-interface GET_ITEMS_ERROR {
-    type: 'GET_ITEMS_ERROR';
+export interface GET_ITEMS_ERROR {
+    type: typeof itemActionTypes.GET_ITEMS_ERROR;
 }
 
 export type ItemAction = GET_ITEMS | GET_ITEMS_SUCCESS | GET_ITEMS_ERROR;
