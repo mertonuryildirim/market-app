@@ -27,10 +27,15 @@
     margin-left: auto;
 }
 
-.header-right > span {
+.header-right > div {
     background-color: var(--market-color-1);
     color: #ffff;
     font-weight: bold;
     margin-left: auto;
     padding: 10px 10px;
+}
+
+.header-right > div > span,
+.header-right > div > img {
+    vertical-align: middle;
 }
