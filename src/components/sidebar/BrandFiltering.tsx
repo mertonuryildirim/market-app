@@ -12,26 +12,13 @@ const BrandFiltering: React.FC<BrandFilteringProps> = ({ companies }) => {
             <div className="container">
                 <input className="filter-search" placeholder="Search brand" />
                 <div className="filter-overflow">
-                    <label className="sort-checkbox">
-                        All
-                        <input type="checkbox" />
-                        <span className="checkmark checkmark-square "></span>
-                    </label>
-                    <label className="sort-checkbox">
-                        All
-                        <input type="checkbox" />
-                        <span className="checkmark checkmark-square "></span>
-                    </label>
-                    <label className="sort-checkbox">
-                        All
-                        <input type="checkbox" />
-                        <span className="checkmark checkmark-square "></span>
-                    </label>
-                    <label className="sort-checkbox">
-                        All
-                        <input type="checkbox" />
-                        <span className="checkmark checkmark-square "></span>
-                    </label>
+                    {companies.map((company) => (
+                        <label key={company.slug} className="sort-checkbox">
+                            {company.name}
+                            <input type="checkbox" />
+                            <span className="checkmark checkmark-square "></span>
+                        </label>
+                    ))}
                 </div>
             </div>
         </div>
