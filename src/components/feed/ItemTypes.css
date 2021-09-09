@@ -1,5 +1,6 @@
 .item-types {
     display: flex;
+    margin-top: 15px;
 }
 
 .item-types > button {
