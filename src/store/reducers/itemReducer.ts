@@ -1,7 +1,7 @@
 import { ItemAction, ItemState } from '../../types/item';
 
 const defaultState: ItemState = {
-    data: [],
+    items: [],
     loading: false,
     error: '',
 };
@@ -11,7 +11,7 @@ const itemReducer = (state: ItemState = defaultState, action: ItemAction) => {
         case 'GET_ITEMS':
             return { ...state, loading: true, error: '' };
         case 'GET_ITEMS_SUCCESS':
-            return { ...state, loading: false, data: action.payload };
+            return { ...state, loading: false, items: action.payload };
         case 'GET_ITEMS_ERROR':
             return {
                 ...state,

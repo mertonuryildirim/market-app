@@ -1,7 +1,7 @@
 import { CompanyAction, CompanyState } from '../../types/company';
 
 const defaultState: CompanyState = {
-    data: [],
+    companies: [],
     loading: false,
     error: '',
 };
@@ -14,7 +14,7 @@ const companyReducer = (
         case 'GET_COMPANIES':
             return { ...state, loading: true, error: '' };
         case 'GET_COMPANIES_SUCCESS':
-            return { ...state, loading: false, data: action.payload };
+            return { ...state, loading: false, companies: action.payload };
         case 'GET_COMPANIES_ERROR':
             return {
                 ...state,

@@ -12,7 +12,7 @@ export interface Item {
 }
 
 export interface ItemState {
-    data: Item[];
+    items: Item[];
     loading: boolean;
     error: string;
 }

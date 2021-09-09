@@ -12,7 +12,7 @@ export interface Company {
 }
 
 export interface CompanyState {
-    data: Company[];
+    companies: Company[];
     loading: boolean;
     error: string;
 }
