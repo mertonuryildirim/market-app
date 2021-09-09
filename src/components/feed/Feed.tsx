@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCompanies } from '../../store/actions/companyActions';
 import { getItems } from '../../store/actions/itemActions';
@@ -9,11 +9,11 @@ import ProductCard from './ProductCard';
 
 const Feed = () => {
     const dispatch = useDispatch();
-    const { data, loading, error } = useSelector(
-        (state: AppState) => state.companies,
+    const { items, loading, error } = useSelector(
+        (state: AppState) => state.items,
     );
 
-    console.log(data, loading, error);
+    console.log(items);
 
     useEffect(() => {
         dispatch(getCompanies());
@@ -29,22 +29,14 @@ const Feed = () => {
 
             <div className="card">
                 <div className="container">
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    {items.map((item) => (
+                        <Fragment key={item.slug}>
+                            <ProductCard
+                                productName={item.name}
+                                productPrice={item.price}
+                            />
+                        </Fragment>
+                    ))}
                 </div>
 
                 <div className="center">
