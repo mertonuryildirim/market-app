@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import api from '../../utils/api';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCompanies } from '../../store/actions/companyActions';
+import { getItems } from '../../store/actions/itemActions';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
 
 const Feed = () => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        api.get('/items')
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(getCompanies());
+        dispatch(getItems());
+        //eslint-disable-next-line
     }, []);
 
     return (
