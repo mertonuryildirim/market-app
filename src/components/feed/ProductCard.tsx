@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </span>
             </div>
             <p className="product-card-price">₺ {productPrice}</p>
-            <p>{productName}</p>
+            <p style={{ height: '40px' }}>{productName}</p>
             <button>Add</button>
         </div>
     );
