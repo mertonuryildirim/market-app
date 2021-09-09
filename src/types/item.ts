@@ -13,8 +13,8 @@ export interface Item {
 
 export interface ItemState {
     items: Item[];
-    loading: boolean;
-    error: string;
+    loadingItem: boolean;
+    errorItem: string;
 }
 
 export interface GET_ITEMS {
