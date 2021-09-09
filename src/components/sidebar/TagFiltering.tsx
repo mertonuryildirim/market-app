@@ -6,26 +6,43 @@ const TagFiltering = () => {
         <div className="card">
             <div className="container">
                 <input className="filter-search" placeholder="Search tag" />
-                <label className="sort-checkbox">
-                    All
-                    <input type="checkbox" />
-                    <span className="checkmark checkmark-square "></span>
-                </label>
-                <label className="sort-checkbox">
-                    All
-                    <input type="checkbox" />
-                    <span className="checkmark checkmark-square "></span>
-                </label>
-                <label className="sort-checkbox">
-                    All
-                    <input type="checkbox" />
-                    <span className="checkmark checkmark-square "></span>
-                </label>
-                <label className="sort-checkbox">
-                    All
-                    <input type="checkbox" />
-                    <span className="checkmark checkmark-square "></span>
-                </label>
+                <div className="filter-overflow">
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                    <label className="sort-checkbox">
+                        All
+                        <input type="checkbox" />
+                        <span className="checkmark checkmark-square "></span>
+                    </label>
+                </div>
             </div>
         </div>
     );
