@@ -11,6 +11,8 @@ const Basket = () => {
                     <BasketItems />
                     <BasketItems />
                     <BasketItems />
+
+                    <div className="basket-total-price">₺ 45.97</div>
                 </div>
             </div>
         </div>

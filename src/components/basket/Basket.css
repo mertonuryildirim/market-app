@@ -66,3 +66,12 @@
     font-size: 20px;
     height: 30px;
 }
+
+.basket-total-price {
+    border: 2px solid var(--market-color-2);
+    border-radius: 5%;
+    padding: 12px 15px;
+    color: var(--market-color-2);
+    font-weight: bold;
+    margin-left: auto;
+}
