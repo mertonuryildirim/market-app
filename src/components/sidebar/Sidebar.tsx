@@ -9,17 +9,17 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar-filters">
                 <div>
-                    <h4>Sorting</h4>
+                    <h5>Sorting</h5>
                     <SortFiltering />
                 </div>
 
                 <div>
-                    <h4>Brands</h4>
+                    <h5>Brands</h5>
                     <BrandFiltering />
                 </div>
 
                 <div>
-                    <h4>Tags</h4>
+                    <h5>Tags</h5>
                     <TagFiltering />
                 </div>
             </div>
