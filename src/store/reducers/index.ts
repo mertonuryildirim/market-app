@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { CompanyState } from '../types/company';
-import { ItemState } from '../types/item';
-import companyReducer from './reducers/companyReducer';
-import itemReducer from './reducers/itemReducer';
+import { CompanyState } from '../../types/company';
+import { ItemState } from '../../types/item';
+import companyReducer from './companyReducer';
+import itemReducer from './itemReducer';
 
 interface AppState {
     companies: CompanyState;
