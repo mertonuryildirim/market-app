@@ -9,14 +9,9 @@ const getItems = () => api.get<Item[]>('/items');
 function* handleGetItems(): any {
     try {
         const response = yield call(getItems);
-        console.log('items', response.data);
-        // yield put(
-        //     getItemsSuccess({
-        //         items: response.data,
-        //     }),
-        // );
+        yield put(getItemsSuccess(response.data));
     } catch (error) {
-        // yield put(getItemsError({ error: error.message }));
+        yield put(getItemsError());
     }
 }
 

@@ -12,14 +12,9 @@ const getCompanies = () => api.get<Company[]>('/companies');
 function* handleGetCompanies(): any {
     try {
         const response = yield call(getCompanies);
-        console.log('companies', response.data);
-        // yield put(
-        //     getCompaniesSuccess({
-        //         companies: response.data,
-        //     }),
-        // );
+        yield put(getCompaniesSuccess(response.data));
     } catch (error) {
-        // yield put(getCompaniesError({ error: error.message }));
+        yield put(getCompaniesError());
     }
 }
 
