@@ -1,25 +1,14 @@
-import React, { Fragment, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCompanies } from '../../store/actions/companyActions';
-import { getItems } from '../../store/actions/itemActions';
-import { AppState } from '../../store/reducers';
+import React, { Fragment } from 'react';
+import { Item } from '../../types/item';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
 
-const Feed = () => {
-    const dispatch = useDispatch();
-    //eslint-disable-next-line
-    const { items, loading, error } = useSelector(
-        (state: AppState) => state.items,
-    );
+interface FeedProps {
+    items: Item[];
+}
 
-    useEffect(() => {
-        dispatch(getCompanies());
-        dispatch(getItems());
-        //eslint-disable-next-line
-    }, []);
-
+const Feed: React.FC<FeedProps> = ({ items }) => {
     return (
         <div className="feed">
             <h2>Products</h2>
@@ -41,7 +30,7 @@ const Feed = () => {
                 <div className="center">
                     <div className="pagination">
                         {/* eslint-disable-next-line */}
-                        <a href="">&laquo; Prev</a>{' '}
+                        <a href="">&laquo; Prev</a>
                         {/* eslint-disable-next-line */}
                         <a href="">1</a> {/* eslint-disable-next-line */}
                         <a href="">2</a> {/* eslint-disable-next-line */}
