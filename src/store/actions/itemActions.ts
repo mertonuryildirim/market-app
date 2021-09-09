@@ -1,14 +1,14 @@
-import { ItemState } from '../../types/item';
+import { ItemAction, ItemState } from '../../types/item';
 
-export const getItems = () => ({
+export const getItems = (): ItemAction => ({
     type: 'GET_ITEMS',
 });
 
-export const getItemsSuccess = (items: ItemState) => ({
+export const getItemsSuccess = (items: ItemState): ItemAction => ({
     type: 'GET_ITEMS_SUCCESS',
-    payload: items,
+    payload: [],
 });
 
-export const getItemsError = () => ({
+export const getItemsError = (): ItemAction => ({
     type: 'GET_ITEMS_ERROR',
 });
