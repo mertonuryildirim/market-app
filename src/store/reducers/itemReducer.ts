@@ -7,7 +7,20 @@ const defaultState: ItemState = {
 };
 
 const itemReducer = (state: ItemState = defaultState, action: ItemAction) => {
-    return state;
+    switch (action.type) {
+        case 'GET_ITEMS':
+            return { ...state, loading: true, error: '' };
+        case 'GET_ITEMS_SUCCESS':
+            return { ...state, loading: false, data: action.payload };
+        case 'GET_ITEMS_ERROR':
+            return {
+                ...state,
+                loading: false,
+                error: 'Error fetching items.!',
+            };
+        default:
+            return state;
+    }
 };
 
 export default itemReducer;
