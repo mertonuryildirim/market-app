@@ -1,10 +1,12 @@
 .footer {
-    color: var(--market-color-2);
-    position: sticky;
-    bottom: 0;
     display: flex;
     justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+    position: relative;
+    bottom: 0;
     width: 100%;
+    color: var(--market-color-2);
 }

@@ -23,10 +23,8 @@ function App() {
                 <Basket />
             </div>
 
-            <div className="app-footer">
-                {/* Footer */}
-                <Footer />
-            </div>
+            {/* Footer */}
+            <Footer />
         </div>
     );
 }
