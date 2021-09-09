@@ -9,11 +9,10 @@ import ProductCard from './ProductCard';
 
 const Feed = () => {
     const dispatch = useDispatch();
+    //eslint-disable-next-line
     const { items, loading, error } = useSelector(
         (state: AppState) => state.items,
     );
-
-    console.log(items);
 
     useEffect(() => {
         dispatch(getCompanies());
