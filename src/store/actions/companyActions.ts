@@ -1,14 +1,12 @@
-import { CompanyAction, CompanyState } from '../../types/company';
+import { CompanyAction, Company } from '../../types/company';
 
 export const getCompanies = (): CompanyAction => ({
     type: 'GET_COMPANIES',
 });
 
-export const getCompaniesSuccess = (
-    companies: CompanyState,
-): CompanyAction => ({
+export const getCompaniesSuccess = (companies: Company[]): CompanyAction => ({
     type: 'GET_COMPANIES_SUCCESS',
-    payload: [],
+    payload: companies,
 });
 
 export const getCompaniesError = (): CompanyAction => ({
