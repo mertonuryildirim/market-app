@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import api from '../../utils/api';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
 
 const Feed = () => {
+    useEffect(() => {
+        api.get('/items')
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
     return (
         <div className="feed">
             <h2>Products</h2>
