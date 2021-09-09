@@ -1,13 +1,19 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCompanies } from '../../store/actions/companyActions';
 import { getItems } from '../../store/actions/itemActions';
+import { AppState } from '../../store/reducers';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
 
 const Feed = () => {
     const dispatch = useDispatch();
+    const { data, loading, error } = useSelector(
+        (state: AppState) => state.companies,
+    );
+
+    console.log(data, loading, error);
 
     useEffect(() => {
         dispatch(getCompanies());

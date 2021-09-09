@@ -4,7 +4,7 @@ import { ItemState } from '../../types/item';
 import companyReducer from './companyReducer';
 import itemReducer from './itemReducer';
 
-interface AppState {
+export interface AppState {
     companies: CompanyState;
     items: ItemState;
 }
