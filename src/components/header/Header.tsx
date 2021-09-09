@@ -8,7 +8,10 @@ const Header = () => {
                 <img src="./market-logo.svg" alt="Market Icon"></img>
             </div>
             <div className="header-right">
-                <span>₺ 45.97</span>
+                <div>
+                    <img src="./basket.svg" alt="Basket Icon" />
+                    <span>₺ 45.97</span>
+                </div>
             </div>
         </div>
     );
