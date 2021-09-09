@@ -3,12 +3,23 @@ import { Item } from '../../types/item';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
+import { usePagination } from 'use-pagination-hook';
+import Pagination from 'rc-pagination';
 
 interface FeedProps {
     items: Item[];
 }
 
 const Feed: React.FC<FeedProps> = ({ items }) => {
+    const { current, display } = usePagination({
+        items: items,
+        size: 16,
+    });
+
+    const handleChange = (current: number, pageSize: number) => {
+        console.log(current, pageSize);
+    };
+
     return (
         <div className="feed">
             <h2>Products</h2>
@@ -17,7 +28,7 @@ const Feed: React.FC<FeedProps> = ({ items }) => {
 
             <div className="card">
                 <div className="container">
-                    {items.map((item) => (
+                    {display.map((item) => (
                         <Fragment key={item.slug}>
                             <ProductCard
                                 productName={item.name}
@@ -29,16 +40,15 @@ const Feed: React.FC<FeedProps> = ({ items }) => {
 
                 <div className="center">
                     <div className="pagination">
-                        {/* eslint-disable-next-line */}
-                        <a href="">&laquo; Prev</a>
-                        {/* eslint-disable-next-line */}
-                        <a href="">1</a> {/* eslint-disable-next-line */}
-                        <a href="">2</a> {/* eslint-disable-next-line */}
-                        <a href="">3</a> {/* eslint-disable-next-line */}
-                        <a href="">4</a> {/* eslint-disable-next-line */}
-                        <a href="">5</a> {/* eslint-disable-next-line */}
-                        <a href="">6</a> {/* eslint-disable-next-line */}
-                        <a href="">Next &raquo;</a>
+                        <Pagination
+                            current={current}
+                            total={items.length}
+                            defaultPageSize={16}
+                            onChange={handleChange}
+                            nextIcon=">"
+                            prevIcon="<"
+                            jumpNextIcon="..."
+                        />
                     </div>
                 </div>
             </div>
