@@ -15,7 +15,7 @@ export interface FilteringData {
     itemType: 'mug' | 'shirt';
     sort: 'added' | 'price';
     order: 'asc' | 'desc';
-    manufacturer: string[];
+    manufacturer: string[]; //birden fazla olma durumu eksik.
     tags: string[];
     page: number;
     limit: number;
@@ -29,6 +29,7 @@ export interface ItemState {
 
 export interface GET_ITEMS {
     type: typeof itemActionTypes.GET_ITEMS;
+    payload: FilteringData;
 }
 
 export interface GET_ITEMS_SUCCESS {
@@ -40,24 +41,4 @@ export interface GET_ITEMS_ERROR {
     type: typeof itemActionTypes.GET_ITEMS_ERROR;
 }
 
-export interface FILTER_ITEMS {
-    type: typeof itemActionTypes.FILTER_ITEMS;
-    payload: FilteringData[];
-}
-
-export interface FILTER_ITEMS_SUCCESS {
-    type: typeof itemActionTypes.FILTER_ITEMS_SUCCESS;
-    payload: Item[];
-}
-
-export interface FILTER_ITEMS_ERROR {
-    type: typeof itemActionTypes.FILTER_ITEMS_ERROR;
-}
-
-export type ItemAction =
-    | GET_ITEMS
-    | GET_ITEMS_SUCCESS
-    | GET_ITEMS_ERROR
-    | FILTER_ITEMS
-    | FILTER_ITEMS_SUCCESS
-    | FILTER_ITEMS_ERROR;
+export type ItemAction = GET_ITEMS | GET_ITEMS_SUCCESS | GET_ITEMS_ERROR;
