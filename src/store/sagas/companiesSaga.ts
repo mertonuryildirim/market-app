@@ -1,17 +1,14 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { Company } from '../../types/company';
-import api from '../../utils/api';
+import { getCompaniesService } from '../../utils/api';
 import { companyActionTypes } from '../actions/actionTypes';
 import {
     getCompaniesError,
     getCompaniesSuccess,
 } from '../actions/companyActions';
 
-const getCompanies = () => api.get<Company[]>('/companies');
-
 function* handleGetCompanies(): any {
     try {
-        const response = yield call(getCompanies);
+        const response = yield call(getCompaniesService);
         yield put(getCompaniesSuccess(response.data));
     } catch (error) {
         yield put(getCompaniesError());
