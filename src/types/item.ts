@@ -12,13 +12,13 @@ export interface Item {
 }
 
 export interface FilteringData {
-    itemType: string;
-    sort: string;
+    itemType: 'mug' | 'shirt';
+    sort: 'added' | 'price';
     order: 'asc' | 'desc';
-    slug: string[];
+    manufacturer: string[];
     tags: string[];
     page: number;
-    limit: 16;
+    limit: number;
 }
 
 export interface ItemState {
