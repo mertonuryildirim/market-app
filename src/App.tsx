@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './app.css';
 import Basket from './components/basket/Basket';
@@ -9,6 +9,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import { getCompanies } from './store/actions/companyActions';
 import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
+import { FilteringData } from './types/item';
 
 function App() {
     const dispatch = useDispatch();
@@ -21,9 +22,20 @@ function App() {
         (state: AppState) => state.companies,
     );
 
+    //eslint-disable-next-line
+    const [filteringData, setFilteringData] = useState<FilteringData>({
+        itemType: 'mug',
+        sort: 'price',
+        order: 'asc',
+        manufacturer: [],
+        tags: [],
+        page: 1,
+        limit: 16,
+    });
+
     useEffect(() => {
         dispatch(getCompanies());
-        dispatch(getItems());
+        dispatch(getItems(filteringData));
         //eslint-disable-next-line
     }, []);
     return (
