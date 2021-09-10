@@ -26,7 +26,7 @@ const itemReducer = (state: ItemState = defaultState, action: ItemAction) => {
             return {
                 ...state,
                 loadingItem: false,
-                errorItem: 'Error fetching items.!',
+                errorItem: 'Error fetching filtered items.!',
             };
         default:
             return state;
