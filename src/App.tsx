@@ -24,9 +24,9 @@ function App() {
 
     //eslint-disable-next-line
     const [filteringData, setFilteringData] = useState<FilteringData>({
-        itemType: 'mug',
-        sort: 'price',
-        order: 'asc',
+        itemType: '',
+        sort: '',
+        order: '',
         manufacturer: [],
         tags: [],
         page: 1,

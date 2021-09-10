@@ -12,9 +12,9 @@ export interface Item {
 }
 
 export interface FilteringData {
-    itemType: 'mug' | 'shirt';
-    sort: 'added' | 'price';
-    order: 'asc' | 'desc';
+    itemType: '' | 'mug' | 'shirt';
+    sort: '' | 'added' | 'price';
+    order: '' | 'asc' | 'desc';
     manufacturer: string[]; //birden fazla olma durumu eksik.
     tags: string[];
     page: number;
