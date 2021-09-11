@@ -24,7 +24,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                         type="checkbox"
                         name="sortPriceAsc"
                         checked={checkboxEvent.sortPriceAsc}
-                        onClick={(e) => {
+                        onChange={(e) => {
                             handleFilteringDataChange(e);
                             setCheckboxEvent({
                                 sortPriceAsc: true,
@@ -42,7 +42,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                         type="checkbox"
                         name="sortPriceDesc"
                         checked={checkboxEvent.sortPriceDesc}
-                        onClick={(e) => {
+                        onChange={(e) => {
                             handleFilteringDataChange(e);
                             setCheckboxEvent({
                                 sortPriceAsc: false,
@@ -60,7 +60,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                         type="checkbox"
                         name="sortAddedDesc"
                         checked={checkboxEvent.sortAddedDesc}
-                        onClick={(e) => {
+                        onChange={(e) => {
                             handleFilteringDataChange(e);
                             setCheckboxEvent({
                                 sortPriceAsc: false,
@@ -78,7 +78,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                         type="checkbox"
                         name="sortAddedAsc"
                         checked={checkboxEvent.sortAddedAsc}
-                        onClick={(e) => {
+                        onChange={(e) => {
                             handleFilteringDataChange(e);
                             setCheckboxEvent({
                                 sortPriceAsc: false,
