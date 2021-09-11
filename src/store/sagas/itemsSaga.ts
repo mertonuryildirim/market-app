@@ -4,10 +4,10 @@ import { getItemsService } from '../../utils/api';
 import { itemActionTypes } from '../actions/actionTypes';
 import { getItemsError, getItemsSuccess } from '../actions/itemActions';
 
-function* handleGetItems({ payload }: GET_ITEMS) {
+function* handleGetItems(action: GET_ITEMS): any {
     try {
-        const { data } = yield call(getItemsService(payload) as any);
-        yield put(getItemsSuccess(data));
+        const response = yield call(getItemsService, action.payload);
+        yield put(getItemsSuccess(response.data));
     } catch (error) {
         yield put(getItemsError());
     }
