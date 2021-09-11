@@ -109,6 +109,17 @@ const App: React.FC = () => {
                 ...filteringData,
                 [e.target.name]: e.target.value,
             });
+        } else if (e.target.name === 'manufacturer') {
+            let manufacturerArr = [...filteringData.manufacturer];
+            e.target.checked
+                ? manufacturerArr.push(e.target.value)
+                : (manufacturerArr = manufacturerArr.filter(
+                      (item) => item !== e.target.value,
+                  ));
+            setFilteringData({
+                ...filteringData,
+                manufacturer: manufacturerArr,
+            });
         }
     };
 
