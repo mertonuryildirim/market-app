@@ -33,7 +33,76 @@ const App: React.FC = () => {
     });
 
     const handleFilteringDataChange = (e: any) => {
-        setFilteringData({ ...filteringData, [e.target.name]: e.target.value });
+        if (e.target.name === 'sortPriceAsc') {
+            e.target.checked
+                ? setFilteringData({
+                      ...filteringData,
+                      sort: 'price',
+                      order: 'asc',
+                  })
+                : setFilteringData({
+                      itemType: '',
+                      sort: '',
+                      order: '',
+                      manufacturer: [],
+                      tags: [],
+                      page: 1,
+                      limit: 1750,
+                  });
+        } else if (e.target.name === 'sortPriceDesc') {
+            e.target.checked
+                ? setFilteringData({
+                      ...filteringData,
+                      sort: 'price',
+                      order: 'desc',
+                  })
+                : setFilteringData({
+                      itemType: '',
+                      sort: '',
+                      order: '',
+                      manufacturer: [],
+                      tags: [],
+                      page: 1,
+                      limit: 1750,
+                  });
+        } else if (e.target.name === 'sortAddedAsc') {
+            e.target.checked
+                ? setFilteringData({
+                      ...filteringData,
+                      sort: 'added',
+                      order: 'asc',
+                  })
+                : setFilteringData({
+                      itemType: '',
+                      sort: '',
+                      order: '',
+                      manufacturer: [],
+                      tags: [],
+                      page: 1,
+                      limit: 1750,
+                  });
+        } else if (e.target.name === 'sortAddedDesc') {
+            e.target.checked
+                ? setFilteringData({
+                      ...filteringData,
+                      sort: 'added',
+                      order: 'desc',
+                  })
+                : setFilteringData({
+                      itemType: '',
+                      sort: '',
+                      order: '',
+                      manufacturer: [],
+                      tags: [],
+                      page: 1,
+                      limit: 1750,
+                  });
+        } else if (e.target.name === 'itemType') {
+            setFilteringData({
+                ...filteringData,
+                [e.target.name]: e.target.value,
+            });
+        }
     };
 
     console.log(filteringData);
@@ -54,7 +123,11 @@ const App: React.FC = () => {
             {/* App Body */}
             <div className="app-body">
                 {/* Sidebar */}
-                <Sidebar companies={companies} items={items} />
+                <Sidebar
+                    companies={companies}
+                    items={items}
+                    handleFilteringDataChange={handleFilteringDataChange}
+                />
 
                 {/* Feed */}
                 <Feed

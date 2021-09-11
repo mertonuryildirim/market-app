@@ -9,25 +9,38 @@ import TagFiltering from './TagFiltering';
 interface SidebarProps {
     companies: Company[];
     items: Item[];
+    handleFilteringDataChange: (e: any) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ companies, items }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+    companies,
+    items,
+    handleFilteringDataChange,
+}) => {
     return (
         <div className="sidebar">
             <div className="sidebar-filters">
                 <div>
                     <h5>Sorting</h5>
-                    <SortFiltering />
+                    <SortFiltering
+                        handleFilteringDataChange={handleFilteringDataChange}
+                    />
                 </div>
 
                 <div>
                     <h5>Brands</h5>
-                    <BrandFiltering companies={companies} />
+                    <BrandFiltering
+                        companies={companies}
+                        handleFilteringDataChange={handleFilteringDataChange}
+                    />
                 </div>
 
                 <div>
                     <h5>Tags</h5>
-                    <TagFiltering items={items} />
+                    <TagFiltering
+                        items={items}
+                        handleFilteringDataChange={handleFilteringDataChange}
+                    />
                 </div>
             </div>
         </div>

@@ -4,9 +4,13 @@ import './Sidebar.css';
 
 interface BrandFilteringProps {
     companies: Company[];
+    handleFilteringDataChange: (e: any) => void;
 }
 
-const BrandFiltering: React.FC<BrandFilteringProps> = ({ companies }) => {
+const BrandFiltering: React.FC<BrandFilteringProps> = ({
+    companies,
+    handleFilteringDataChange,
+}) => {
     return (
         <div className="card">
             <div className="container">

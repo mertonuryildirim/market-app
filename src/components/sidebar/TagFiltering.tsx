@@ -4,9 +4,13 @@ import './Sidebar.css';
 
 interface TagFilteringProps {
     items: Item[];
+    handleFilteringDataChange: (e: any) => void;
 }
 
-const TagFiltering: React.FC<TagFilteringProps> = ({ items }) => {
+const TagFiltering: React.FC<TagFilteringProps> = ({
+    items,
+    handleFilteringDataChange,
+}) => {
     return (
         <div className="card">
             <div className="container">
