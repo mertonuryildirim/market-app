@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './app.css';
 import Basket from './components/basket/Basket';
@@ -11,7 +11,7 @@ import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
 import { FilteringData } from './types/item';
 
-function App() {
+const App: React.FC = () => {
     const dispatch = useDispatch();
     //eslint-disable-next-line
     const { items, loadingItem, errorItem } = useSelector(
@@ -22,7 +22,6 @@ function App() {
         (state: AppState) => state.companies,
     );
 
-    //eslint-disable-next-line
     const [filteringData, setFilteringData] = useState<FilteringData>({
         itemType: '',
         sort: '',
@@ -30,14 +29,23 @@ function App() {
         manufacturer: [],
         tags: [],
         page: 1,
-        limit: 16,
+        limit: 1750,
     });
+
+    const handleFilteringDataChange = (e: any) => {
+        setFilteringData({ ...filteringData, [e.target.name]: e.target.value });
+    };
+
+    console.log(filteringData);
 
     useEffect(() => {
         dispatch(getCompanies());
+    }, [dispatch]);
+
+    useEffect(() => {
         dispatch(getItems(filteringData));
-        //eslint-disable-next-line
-    }, []);
+    }, [dispatch, filteringData]);
+
     return (
         <div className="app">
             {/* Header */}
@@ -49,7 +57,10 @@ function App() {
                 <Sidebar companies={companies} items={items} />
 
                 {/* Feed */}
-                <Feed items={items} />
+                <Feed
+                    items={items}
+                    handleFilteringDataChange={handleFilteringDataChange}
+                />
 
                 {/* Widgets */}
                 <Basket />
@@ -59,6 +70,6 @@ function App() {
             <Footer />
         </div>
     );
-}
+};
 
 export default App;

@@ -8,23 +8,24 @@ import Pagination from 'rc-pagination';
 
 interface FeedProps {
     items: Item[];
+    handleFilteringDataChange: (e: any) => void;
 }
 
-const Feed: React.FC<FeedProps> = ({ items }) => {
+const Feed: React.FC<FeedProps> = ({ items, handleFilteringDataChange }) => {
     const { current, display } = usePagination({
         items: items,
         size: 16,
     });
 
-    const handleChange = (current: number, pageSize: number) => {
-        console.log(current, pageSize);
+    const handleChange = (current: number) => {
+        console.log(current);
     };
 
     return (
         <div className="feed">
             <h2>Products</h2>
 
-            <ItemTypes />
+            <ItemTypes handleFilteringDataChange={handleFilteringDataChange} />
 
             <div className="card">
                 <div className="container">
