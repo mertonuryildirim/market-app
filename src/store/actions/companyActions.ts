@@ -1,5 +1,4 @@
 import {
-    CompanyAction,
     Company,
     GET_COMPANIES,
     GET_COMPANIES_SUCCESS,
