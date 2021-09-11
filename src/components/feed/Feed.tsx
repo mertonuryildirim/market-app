@@ -9,16 +9,21 @@ import Pagination from 'rc-pagination';
 interface FeedProps {
     items: Item[];
     handleFilteringDataChange: (e: any) => void;
+    handlePaginationChange: (pageNumber: number) => void;
 }
 
-const Feed: React.FC<FeedProps> = ({ items, handleFilteringDataChange }) => {
+const Feed: React.FC<FeedProps> = ({
+    items,
+    handleFilteringDataChange,
+    handlePaginationChange,
+}) => {
     const { current, display } = usePagination({
         items: items,
         size: 16,
     });
 
     const handleChange = (current: number) => {
-        console.log(current);
+        handlePaginationChange(current);
     };
 
     return (

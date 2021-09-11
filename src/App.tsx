@@ -32,6 +32,13 @@ const App: React.FC = () => {
         limit: 1750,
     });
 
+    const handlePaginationChange = (pageNumber: number) => {
+        setFilteringData({
+            ...filteringData,
+            page: pageNumber,
+        });
+    };
+
     const handleFilteringDataChange = (e: any) => {
         if (e.target.name === 'sortPriceAsc') {
             e.target.checked
@@ -133,6 +140,7 @@ const App: React.FC = () => {
                 <Feed
                     items={items}
                     handleFilteringDataChange={handleFilteringDataChange}
+                    handlePaginationChange={handlePaginationChange}
                 />
 
                 {/* Widgets */}
