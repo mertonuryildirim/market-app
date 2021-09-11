@@ -19,12 +19,6 @@ export const getItemsService = async (
     );
 };
 
-export const getCompaniesService = () =>
-    instance
-        .get<Company[]>('/companies')
-        .then((response) => {
-            return response;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+export const getCompaniesService = async (): Promise<Company[]> => {
+    return await instance.get('/companies');
+};
