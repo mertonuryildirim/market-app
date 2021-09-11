@@ -4,7 +4,7 @@ import { getItemsService } from '../../utils/api';
 import { itemActionTypes } from '../actions/actionTypes';
 import { getItemsError, getItemsSuccess } from '../actions/itemActions';
 
-function* handleGetItems({ type, payload }: GET_ITEMS) {
+function* handleGetItems({ payload }: GET_ITEMS) {
     try {
         const { data } = yield call(getItemsService(payload) as any);
         yield put(getItemsSuccess(data));
