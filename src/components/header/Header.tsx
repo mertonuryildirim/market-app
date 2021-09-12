@@ -1,7 +1,11 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+interface HeaderProps {
+    handleCalculateTotalPrice: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ handleCalculateTotalPrice }) => {
     return (
         <div className="header">
             <div className="header-center">
@@ -10,7 +14,7 @@ const Header = () => {
             <div className="header-right">
                 <div>
                     <img src="./basket.svg" alt="Basket Icon" />
-                    <span>₺ 45.97</span>
+                    <span>₺ {handleCalculateTotalPrice()}</span>
                 </div>
             </div>
         </div>

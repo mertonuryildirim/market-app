@@ -22,6 +22,37 @@ const App: React.FC = () => {
     const { companies, loadingCompany, errorCompany } = useSelector(
         (state: AppState) => state.companies,
     );
+    // const { basketItems, loadingBasket, errorBasket } = useSelector(
+    //     (state: AppState) => state.basketItems,
+    // );
+    const [basketItems] = useState([
+        {
+            quantity: 3,
+            product: {
+                tags: ['Trees', 'Beer'],
+                price: 14.99,
+                name: 'Ürün adı',
+                description: 'Ürün açıklaması',
+                slug: 'Unique ürün adı',
+                manufacturer: 'deneme',
+                itemType: 'shirt',
+                added: 123123123123,
+            },
+        },
+        {
+            quantity: 2,
+            product: {
+                tags: ['Trees', 'Beer'],
+                price: 19.99,
+                name: 'Ürün adı 2',
+                description: 'Ürün açıklaması',
+                slug: 'Unique ürün adı2',
+                manufacturer: 'deneme',
+                itemType: 'shirt',
+                added: 123123123123,
+            },
+        },
+    ]);
 
     const [filteringData, setFilteringData] = useState<FilteringData>({
         itemType: '',
@@ -137,6 +168,13 @@ const App: React.FC = () => {
         dispatch(addToBasket({ quantity: 1, product }));
     };
 
+    const handleCalculateTotalPrice = () => {
+        return basketItems.reduce(
+            (total, item) => item.product.price + total,
+            0,
+        );
+    };
+
     useEffect(() => {
         dispatch(getCompanies());
     }, [dispatch]);
@@ -148,7 +186,7 @@ const App: React.FC = () => {
     return (
         <div className="app">
             {/* Header */}
-            <Header />
+            <Header handleCalculateTotalPrice={handleCalculateTotalPrice} />
 
             {/* App Body */}
             <div className="app-body">
@@ -168,7 +206,11 @@ const App: React.FC = () => {
                 />
 
                 {/* Widgets */}
-                <Basket handleAddToBasket={handleAddToBasket} />
+                <Basket
+                    basketItems={basketItems}
+                    handleAddToBasket={handleAddToBasket}
+                    handleCalculateTotalPrice={handleCalculateTotalPrice}
+                />
             </div>
 
             {/* Footer */}
