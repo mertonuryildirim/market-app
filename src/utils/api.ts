@@ -14,8 +14,21 @@ export const getItemsService = async (
 ): Promise<Item[]> => {
     const { itemType, sort, order, manufacturer, tags, page, limit } =
         itemFilteringData;
+
+    const manufacturerQueryStringParams = manufacturer.map((item) => {
+        return `&manufacturer_like=${item}`;
+    });
+
+    const handleDynamicManufacturerParam = () => {
+        return manufacturerQueryStringParams.length > 0
+            ? manufacturerQueryStringParams
+                  .map((manufacturer) => manufacturer)
+                  .join('')
+            : '&manufacturer_like=';
+    };
+
     return await instance.get(
-        `/items?itemType_like=${itemType}&_sort=${sort}&_order=${order}&manufacturer_like=${manufacturer}&tags_like=${tags}&_page=${page}&_limit=${limit}`,
+        `/items?itemType_like=${itemType}&_sort=${sort}&_order=${order}${handleDynamicManufacturerParam()}&tags_like=${tags}&_page=${page}&_limit=${limit}`,
     );
 };
 
