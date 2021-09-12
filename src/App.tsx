@@ -31,10 +31,10 @@ const App: React.FC = () => {
             quantity: 3,
             product: {
                 tags: ['Trees', 'Beer'],
-                price: 14.99,
-                name: 'Ürün adı',
+                price: 10.99,
+                name: 'Handcrafted Trees Mug',
                 description: 'Ürün açıklaması',
-                slug: 'Unique ürün adı',
+                slug: 'Handcrafted Trees Mug',
                 manufacturer: 'deneme',
                 itemType: 'shirt',
                 added: 123123123123,
@@ -45,9 +45,9 @@ const App: React.FC = () => {
             product: {
                 tags: ['Trees', 'Beer'],
                 price: 19.99,
-                name: 'Ürün adı 2',
+                name: 'Rustic Beach Mug',
                 description: 'Ürün açıklaması',
-                slug: 'Unique ürün adı2',
+                slug: 'Rustic Beach Mug',
                 manufacturer: 'deneme',
                 itemType: 'shirt',
                 added: 123123123123,
@@ -171,10 +171,9 @@ const App: React.FC = () => {
 
     const handleCalculateTotalPrice = () => {
         if (basketItems.length > 0) {
-            return basketItems.reduce(
-                (total, item) => item.product.price + total,
-                0,
-            );
+            return basketItems
+                .reduce((total, item) => item.product.price + total, 0)
+                .toFixed(2);
         } else {
             return '0';
         }
