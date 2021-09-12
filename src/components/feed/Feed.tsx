@@ -3,8 +3,6 @@ import { Item } from '../../types/item';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
-import { usePagination } from 'use-pagination-hook';
-import Pagination from 'rc-pagination';
 
 interface FeedProps {
     items: Item[];
@@ -19,15 +17,6 @@ const Feed: React.FC<FeedProps> = ({
     handlePaginationChange,
     handleAddToBasket,
 }) => {
-    const { current, display } = usePagination({
-        items: items,
-        size: 16,
-    });
-
-    const handleChange = (current: number) => {
-        handlePaginationChange(current);
-    };
-
     return (
         <div className="feed">
             <h2>Products</h2>
@@ -36,7 +25,7 @@ const Feed: React.FC<FeedProps> = ({
 
             <div className="card">
                 <div className="container">
-                    {display.map((item) => (
+                    {items.map((item) => (
                         <Fragment key={item.slug}>
                             <ProductCard
                                 product={item}
@@ -47,17 +36,7 @@ const Feed: React.FC<FeedProps> = ({
                 </div>
 
                 <div className="center">
-                    <div className="pagination">
-                        <Pagination
-                            current={current}
-                            total={items.length}
-                            defaultPageSize={16}
-                            onChange={handleChange}
-                            nextIcon=">"
-                            prevIcon="<"
-                            jumpNextIcon="..."
-                        />
-                    </div>
+                    <div className="pagination"></div>
                 </div>
             </div>
         </div>
