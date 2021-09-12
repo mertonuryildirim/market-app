@@ -18,7 +18,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
     return (
         <div className="card">
             <div className="container">
-                <label htmlFor="sortPriceAsc" className="sort-checkbox">
+                <label className="sort-checkbox">
                     Price low to high
                     <input
                         type="checkbox"
@@ -36,7 +36,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                     />
                     <span className="checkmark"></span>
                 </label>
-                <label htmlFor="sortPriceDesc" className="sort-checkbox">
+                <label className="sort-checkbox">
                     Price high to low
                     <input
                         type="checkbox"
@@ -54,7 +54,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                     />
                     <span className="checkmark"></span>
                 </label>
-                <label htmlFor="sortAddedDesc" className="sort-checkbox">
+                <label className="sort-checkbox">
                     New to old
                     <input
                         type="checkbox"
@@ -72,7 +72,7 @@ const SortFiltering: React.FC<SortFilteringProps> = ({
                     />
                     <span className="checkmark"></span>
                 </label>
-                <label htmlFor="sortAddedAsc" className="sort-checkbox">
+                <label className="sort-checkbox">
                     Old to new
                     <input
                         type="checkbox"
