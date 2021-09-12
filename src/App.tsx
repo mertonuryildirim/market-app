@@ -132,8 +132,6 @@ const App: React.FC = () => {
         }
     };
 
-    console.log(filteringData);
-
     useEffect(() => {
         dispatch(getCompanies());
     }, [dispatch]);

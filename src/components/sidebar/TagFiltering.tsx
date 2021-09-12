@@ -23,6 +23,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
         (item: any, index: any, arrRef: any) => arrRef.indexOf(item) === index,
     );
 
+    console.log(uniqueTagItems);
     return (
         <div className="card">
             <div className="container">
@@ -31,14 +32,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
                     {uniqueTagItems.map((tag: any) => (
                         <label key={tag} className="sort-checkbox">
                             {tag}
-                            <input
-                                type="checkbox"
-                                name="tags"
-                                value={tag}
-                                onChange={(e) => {
-                                    handleFilteringDataChange(e);
-                                }}
-                            />
+                            <input type="checkbox" />
                             <span className="checkmark checkmark-square "></span>
                         </label>
                     ))}
