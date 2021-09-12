@@ -10,7 +10,6 @@ import { addToBasket } from './store/actions/basketActions';
 import { getCompanies } from './store/actions/companyActions';
 import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
-import { BasketItem } from './types/basket';
 import { FilteringData, Item } from './types/item';
 
 const App: React.FC = () => {
@@ -23,37 +22,38 @@ const App: React.FC = () => {
     const { companies, loadingCompany, errorCompany } = useSelector(
         (state: AppState) => state.companies,
     );
-    // const { basketItems, loadingBasket, errorBasket } = useSelector(
-    //     (state: AppState) => state.basketItems,
-    // );
-    const [basketItems] = useState<BasketItem[]>([
-        {
-            quantity: 3,
-            product: {
-                tags: ['Trees', 'Beer'],
-                price: 10.99,
-                name: 'Handcrafted Trees Mug',
-                description: 'Ürün açıklaması',
-                slug: 'Handcrafted Trees Mug',
-                manufacturer: 'deneme',
-                itemType: 'shirt',
-                added: 123123123123,
-            },
-        },
-        {
-            quantity: 2,
-            product: {
-                tags: ['Trees', 'Beer'],
-                price: 19.99,
-                name: 'Rustic Beach Mug',
-                description: 'Ürün açıklaması',
-                slug: 'Rustic Beach Mug',
-                manufacturer: 'deneme',
-                itemType: 'shirt',
-                added: 123123123123,
-            },
-        },
-    ]);
+    //eslint-disable-next-line
+    const { basketItems, loadingBasket, errorBasket } = useSelector(
+        (state: AppState) => state.basketItems,
+    );
+    // const [basketItems] = useState<BasketItem[]>([
+    //     {
+    //         quantity: 3,
+    //         product: {
+    //             tags: ['Trees', 'Beer'],
+    //             price: 10.99,
+    //             name: 'Handcrafted Trees Mug',
+    //             description: 'Ürün açıklaması',
+    //             slug: 'Handcrafted Trees Mug',
+    //             manufacturer: 'deneme',
+    //             itemType: 'shirt',
+    //             added: 123123123123,
+    //         },
+    //     },
+    //     {
+    //         quantity: 2,
+    //         product: {
+    //             tags: ['Trees', 'Beer'],
+    //             price: 19.99,
+    //             name: 'Rustic Beach Mug',
+    //             description: 'Ürün açıklaması',
+    //             slug: 'Rustic Beach Mug',
+    //             manufacturer: 'deneme',
+    //             itemType: 'shirt',
+    //             added: 123123123123,
+    //         },
+    //     },
+    // ]);
 
     const [filteringData, setFilteringData] = useState<FilteringData>({
         itemType: '',

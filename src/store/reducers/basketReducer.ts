@@ -17,22 +17,39 @@ const basketReducer = (
                     basketItem.product.slug === action.payload.product.slug,
             );
             if (addedItem) {
-                return state.basketItems.map((cartItem) =>
-                    cartItem.product.slug === action.payload.product.slug
-                        ? {
-                              ...cartItem.product,
-                              quantity: cartItem.quantity + 1,
-                          }
-                        : cartItem.product,
-                );
+                const newBasketItems = state.basketItems.map((basketItem) => {
+                    if (
+                        basketItem.product.slug === action.payload.product.slug
+                    ) {
+                        return {
+                            ...basketItem,
+                            quantity: basketItem.quantity + 1,
+                            product: basketItem.product,
+                        };
+                    }
+                    return basketItem;
+                });
+                return { ...state, basketItems: newBasketItems };
             } else {
-                return [...state.basketItems, { ...action.payload }];
+                return {
+                    ...state,
+                    basketItems: [...state.basketItems, action.payload],
+                };
             }
         case 'REMOVE_FROM_BASKET':
-            return state.basketItems.filter(
-                (cartItem) =>
-                    cartItem.product.slug !== action.payload.product.slug,
-            );
+            const newBasketItems = state.basketItems.map((basketItem) => {
+                if (basketItem.product.slug === action.payload.product.slug) {
+                    if (basketItem.quantity > 1) {
+                        return {
+                            ...basketItem,
+                            quantity: basketItem.quantity - 1,
+                        };
+                    } else {
+                    }
+                }
+                return basketItem;
+            });
+            return { ...state, basketItems: newBasketItems };
         default:
             return state;
     }
