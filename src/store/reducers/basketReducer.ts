@@ -37,19 +37,11 @@ const basketReducer = (
                 };
             }
         case 'REMOVE_FROM_BASKET':
-            const newBasketItems = state.basketItems.map((basketItem) => {
-                if (basketItem.product.slug === action.payload.product.slug) {
-                    if (basketItem.quantity > 1) {
-                        return {
-                            ...basketItem,
-                            quantity: basketItem.quantity - 1,
-                        };
-                    } else {
-                    }
-                }
-                return basketItem;
-            });
-            return { ...state, basketItems: newBasketItems };
+            const newState2 = state.basketItems.filter(
+                (basketItem) =>
+                    basketItem.product.slug !== action.payload.product.slug,
+            );
+            return { ...state, basketItems: newState2 };
         default:
             return state;
     }
