@@ -1,19 +1,42 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeFromBasket } from '../../store/actions/basketActions';
+import { BasketItem } from '../../types/basket';
+import { Item } from '../../types/item';
 
-const BasketItems = () => {
+interface BasketItemsProps {
+    handleAddToBasket: (product: Item) => void;
+    product: BasketItem;
+}
+
+const BasketItems: React.FC<BasketItemsProps> = ({
+    handleAddToBasket,
+    product,
+}) => {
+    const dispatch = useDispatch();
+
+    const handleRemoveFromBasket = (product: Item) => {
+        dispatch(removeFromBasket({ quantity: 1, product }));
+    };
+
     return (
         <div className="basket-items">
             <div className="basket-items-info">
-                <p>Example Product</p>
-                <p>₺ 14.99</p>
+                <p>{product.product.name}</p>
+                <p>₺ {product.product.price}</p>
             </div>
 
             <div className="basket-items-quantity">
-                <button>- </button>
+                <button onClick={() => handleRemoveFromBasket(product.product)}>
+                    -{' '}
+                </button>
                 <div>
-                    <p>1</p>
+                    <p>{product.quantity}</p>
                 </div>
-                <button> +</button>
+                <button onClick={() => handleAddToBasket(product.product)}>
+                    {' '}
+                    +
+                </button>
             </div>
         </div>
     );

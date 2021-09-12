@@ -6,10 +6,11 @@ import Feed from './components/feed/Feed';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
+import { addToBasket } from './store/actions/basketActions';
 import { getCompanies } from './store/actions/companyActions';
 import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
-import { FilteringData } from './types/item';
+import { FilteringData, Item } from './types/item';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
@@ -132,6 +133,10 @@ const App: React.FC = () => {
         }
     };
 
+    const handleAddToBasket = (product: Item) => {
+        dispatch(addToBasket({ quantity: 1, product }));
+    };
+
     useEffect(() => {
         dispatch(getCompanies());
     }, [dispatch]);
@@ -159,10 +164,11 @@ const App: React.FC = () => {
                     items={items}
                     handleFilteringDataChange={handleFilteringDataChange}
                     handlePaginationChange={handlePaginationChange}
+                    handleAddToBasket={handleAddToBasket}
                 />
 
                 {/* Widgets */}
-                <Basket />
+                <Basket handleAddToBasket={handleAddToBasket} />
             </div>
 
             {/* Footer */}

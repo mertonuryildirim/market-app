@@ -1,19 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToBasket } from '../../store/actions/basketActions';
 import { Item } from '../../types/item';
 import './ProductCard.css';
 
 interface ProductCardProps {
     product: Item;
+    handleAddToBasket: (product: Item) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-    const dispatch = useDispatch();
-
-    const handleAddToBasket = (product: Item) => {
-        dispatch(addToBasket({ quantity: 1, product }));
-    };
+const ProductCard: React.FC<ProductCardProps> = ({
+    product,
+    handleAddToBasket,
+}) => {
     return (
         <div className="product-card">
             <div className="product-card-image">
