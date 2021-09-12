@@ -64,7 +64,11 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
                 />
                 <div className="filter-overflow">
                     {tagItems.map((tag: any) => (
-                        <label key={tag} className="sort-checkbox">
+                        <label
+                            htmlFor="tags"
+                            key={tag}
+                            className="sort-checkbox"
+                        >
                             {tag}
                             <input
                                 type="checkbox"

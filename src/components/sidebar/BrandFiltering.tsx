@@ -37,7 +37,11 @@ const BrandFiltering: React.FC<BrandFilteringProps> = ({
                                 ),
                         )
                         .map((company) => (
-                            <label key={company.slug} className="sort-checkbox">
+                            <label
+                                htmlFor="manufacturer"
+                                key={company.slug}
+                                className="sort-checkbox"
+                            >
                                 {company.name}
                                 <input
                                     type="checkbox"
