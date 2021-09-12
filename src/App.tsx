@@ -120,6 +120,15 @@ const App: React.FC = () => {
                 ...filteringData,
                 manufacturer: manufacturerArr,
             });
+        } else if (e.target.name === 'tags') {
+            let tagsArr = [...filteringData.tags];
+            e.target.checked
+                ? tagsArr.push(e.target.value)
+                : (tagsArr = tagsArr.filter((item) => item !== e.target.value));
+            setFilteringData({
+                ...filteringData,
+                tags: tagsArr,
+            });
         }
     };
 
