@@ -29,11 +29,10 @@ const basketReducer = (
                 return [...state.basketItems, { ...action.payload }];
             }
         case 'REMOVE_FROM_BASKET':
-            const newState2 = state.basketItems.filter(
+            return state.basketItems.filter(
                 (cartItem) =>
                     cartItem.product.slug !== action.payload.product.slug,
             );
-            return newState2;
         default:
             return state;
     }
