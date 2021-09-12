@@ -12,6 +12,26 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
     handleFilteringDataChange,
 }) => {
     const [tagItems, setTagItems] = useState([]);
+    const [tempTagsData, setTempTagsData] = useState([]);
+    const [tagsSearchValue, setTagsSearchValue] = useState('');
+
+    const handleTagsSearch = (e: any) => {
+        setTagsSearchValue(e.target.value);
+
+        if (e.target.value.length === 0) {
+            setTagItems(tempTagsData);
+        }
+    };
+
+    useEffect(() => {
+        setTagItems(
+            tempTagsData.filter((tag: string) =>
+                tag
+                    .toLocaleLowerCase('tr')
+                    .includes(tagsSearchValue.toLocaleLowerCase('tr')),
+            ),
+        );
+    }, [tagsSearchValue, tempTagsData]);
 
     useEffect(() => {
         const allTagItems: any = [];
@@ -28,12 +48,20 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
         );
 
         setTagItems(uniqueTagItems);
+        setTempTagsData(uniqueTagItems);
     }, [items]);
 
     return (
         <div className="card">
             <div className="container">
-                <input className="filter-search" placeholder="Search tag" />
+                <input
+                    className="filter-search"
+                    placeholder="Search tag"
+                    type="text"
+                    name="searchTag"
+                    value={tagsSearchValue}
+                    onChange={(e) => handleTagsSearch(e)}
+                />
                 <div className="filter-overflow">
                     {tagItems.map((tag: any) => (
                         <label key={tag} className="sort-checkbox">
