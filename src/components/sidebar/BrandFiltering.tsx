@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Company } from '../../types/company';
 import './Sidebar.css';
 
@@ -11,23 +11,45 @@ const BrandFiltering: React.FC<BrandFilteringProps> = ({
     companies,
     handleFilteringDataChange,
 }) => {
+    const [brandsSearchValue, setBrandsSearchValue] = useState('');
+
+    const handleBrandsSearch = (e: any) => {
+        setBrandsSearchValue(e.target.value);
+    };
+
     return (
         <div className="card">
             <div className="container">
-                <input className="filter-search" placeholder="Search brand" />
+                <input
+                    className="filter-search"
+                    placeholder="Search brand"
+                    name="searchBrand"
+                    value={brandsSearchValue}
+                    onChange={(e) => handleBrandsSearch(e)}
+                />
                 <div className="filter-overflow">
-                    {companies.map((company) => (
-                        <label key={company.slug} className="sort-checkbox">
-                            {company.name}
-                            <input
-                                type="checkbox"
-                                name="manufacturer"
-                                value={company.slug}
-                                onChange={(e) => handleFilteringDataChange(e)}
-                            />
-                            <span className="checkmark checkmark-square "></span>
-                        </label>
-                    ))}
+                    {companies
+                        .filter((company) =>
+                            company.name
+                                .toLocaleLowerCase('tr')
+                                .includes(
+                                    brandsSearchValue.toLocaleLowerCase('tr'),
+                                ),
+                        )
+                        .map((company) => (
+                            <label key={company.slug} className="sort-checkbox">
+                                {company.name}
+                                <input
+                                    type="checkbox"
+                                    name="manufacturer"
+                                    value={company.slug}
+                                    onChange={(e) =>
+                                        handleFilteringDataChange(e)
+                                    }
+                                />
+                                <span className="checkmark checkmark-square "></span>
+                            </label>
+                        ))}
                 </div>
             </div>
         </div>
