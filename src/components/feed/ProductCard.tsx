@@ -1,15 +1,15 @@
 import React from 'react';
+import { Item } from '../../types/item';
 import './ProductCard.css';
 
 interface ProductCardProps {
-    productName: string;
-    productPrice: number;
+    product: Item;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
-    productName,
-    productPrice,
-}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+    const handleAddToBasket = (product: Item) => {
+        console.log({ quantity: 1, product });
+    };
     return (
         <div className="product-card">
             <div className="product-card-image">
@@ -17,9 +17,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <img src="" alt="" />
                 </span>
             </div>
-            <p className="product-card-price">₺ {productPrice}</p>
-            <p style={{ height: '40px' }}>{productName}</p>
-            <button>Add</button>
+            <p className="product-card-price">₺ {product.price}</p>
+            <p style={{ height: '40px' }}>{product.name}</p>
+            <button onClick={() => handleAddToBasket(product)}>Add</button>
         </div>
     );
 };

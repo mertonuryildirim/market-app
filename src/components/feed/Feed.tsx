@@ -36,10 +36,7 @@ const Feed: React.FC<FeedProps> = ({
                 <div className="container">
                     {display.map((item) => (
                         <Fragment key={item.slug}>
-                            <ProductCard
-                                productName={item.name}
-                                productPrice={item.price}
-                            />
+                            <ProductCard product={item} />
                         </Fragment>
                     ))}
                 </div>
