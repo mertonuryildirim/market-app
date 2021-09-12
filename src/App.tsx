@@ -10,6 +10,7 @@ import { addToBasket } from './store/actions/basketActions';
 import { getCompanies } from './store/actions/companyActions';
 import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
+import { BasketItem } from './types/basket';
 import { FilteringData, Item } from './types/item';
 
 const App: React.FC = () => {
@@ -25,7 +26,7 @@ const App: React.FC = () => {
     // const { basketItems, loadingBasket, errorBasket } = useSelector(
     //     (state: AppState) => state.basketItems,
     // );
-    const [basketItems] = useState([
+    const [basketItems] = useState<BasketItem[]>([
         {
             quantity: 3,
             product: {
@@ -169,10 +170,14 @@ const App: React.FC = () => {
     };
 
     const handleCalculateTotalPrice = () => {
-        return basketItems.reduce(
-            (total, item) => item.product.price + total,
-            0,
-        );
+        if (basketItems.length > 0) {
+            return basketItems.reduce(
+                (total, item) => item.product.price + total,
+                0,
+            );
+        } else {
+            return '0';
+        }
     };
 
     useEffect(() => {
