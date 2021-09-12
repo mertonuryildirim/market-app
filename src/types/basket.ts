@@ -1,17 +1,9 @@
 import { basketActionTypes } from '../store/actions/actionTypes';
+import { Item } from './item';
 
 export interface BasketItem {
     quantity: number;
-    product: {
-        tags: string[];
-        price: number;
-        name: string;
-        description: string;
-        slug: string;
-        added: number;
-        manufacturer: string;
-        itemType: string;
-    };
+    product: Item;
 }
 
 export interface BasketState {

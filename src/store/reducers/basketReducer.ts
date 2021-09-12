@@ -12,29 +12,21 @@ const basketReducer = (
 ) => {
     switch (action.type) {
         case 'ADD_TO_BASKET':
-            var addedItem = state.basketItems.find(
+            let addedItem = state.basketItems.find(
                 (basketItem) =>
                     basketItem.product.slug === action.payload.product.slug,
             );
             if (addedItem) {
-                var newState = state.basketItems.map((basketItem) => {
-                    if (
-                        basketItem.product.slug === action.payload.product.slug
-                    ) {
-                        // return Object.assign({}, addedItem, {
-                        //     quantity: addedItem.quantity + 1,
-                        // });
-                    }
-                    return basketItem;
-                });
-                return newState;
+                return state.basketItems.map((cartItem) =>
+                    cartItem.product.slug === action.payload.product.slug
+                        ? {
+                              ...cartItem.product,
+                              quantity: cartItem.quantity + 1,
+                          }
+                        : cartItem.product,
+                );
             } else {
-                return {
-                    ...state,
-                    loadingBasket: false,
-                    error: '',
-                    basketItems: [...state.basketItems, { ...action.payload }],
-                };
+                return [...state.basketItems, { ...action.payload }];
             }
         case 'REMOVE_FROM_BASKET':
             const newState2 = state.basketItems.filter(

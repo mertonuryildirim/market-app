@@ -1,6 +1,6 @@
 import {
-    ADD_TO_BASKET,
     BasketItem,
+    ADD_TO_BASKET,
     REMOVE_FROM_BASKET,
 } from '../../types/basket';
 import { basketActionTypes } from './actionTypes';
