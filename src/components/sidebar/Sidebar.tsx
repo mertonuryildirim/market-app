@@ -20,6 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     return (
         <div className="sidebar">
             <div className="sidebar-filters">
+                {/* Aside Sort Filtering */}
                 <div>
                     <h5>Sorting</h5>
                     <SortFiltering
@@ -27,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     />
                 </div>
 
+                {/* Aside Brands Filtering */}
                 <div>
                     <h5>Brands</h5>
                     <BrandFiltering
@@ -35,6 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     />
                 </div>
 
+                {/* Aside Tags Filtering */}
                 <div>
                     <h5>Tags</h5>
                     <TagFiltering

@@ -14,18 +14,25 @@ import { FilteringData, Item } from './types/item';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
+    //Items state.
+    //TODO: use missing state items
     //eslint-disable-next-line
     const { items, loadingItem, errorItem } = useSelector(
         (state: AppState) => state.items,
     );
+    //Companies state.
+    //TODO: use missing state items
     //eslint-disable-next-line
     const { companies, loadingCompany, errorCompany } = useSelector(
         (state: AppState) => state.companies,
     );
+    //Basket Items state.
+    //TODO: use missing state items
     //eslint-disable-next-line
     const { basketItems, loadingBasket, errorBasket } = useSelector(
         (state: AppState) => state.basketItems,
     );
+    //Filtering data managed from one state. Sends to getItems action. Used for items api query string params
     const [filteringData, setFilteringData] = useState<FilteringData>({
         itemType: '',
         sort: '',
@@ -43,6 +50,7 @@ const App: React.FC = () => {
         });
     };
 
+    // Update filtering data by name of sidebar form elements
     //TODO: Refactor the code
     const handleFilteringDataChange = (e: any) => {
         if (e.target.name === 'sortPriceAsc') {
@@ -137,10 +145,12 @@ const App: React.FC = () => {
         }
     };
 
+    // Dispatch addToBasket action. Retrieves the product's quantity and product information
     const handleAddToBasket = (product: Item) => {
         dispatch(addToBasket({ quantity: 1, product }));
     };
 
+    // Calculates the total amount of products added to the basket
     const handleCalculateTotalPrice = () => {
         if (basketItems.length > 0) {
             return basketItems
@@ -154,10 +164,12 @@ const App: React.FC = () => {
         }
     };
 
+    //Dispatch getCompanies action when component renders
     useEffect(() => {
         dispatch(getCompanies());
     }, [dispatch]);
 
+    //Dispatch getItems action. Action retrieves filteringData state which uses for api query string params
     useEffect(() => {
         dispatch(getItems(filteringData));
     }, [dispatch, filteringData]);

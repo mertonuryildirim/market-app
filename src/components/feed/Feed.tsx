@@ -32,12 +32,15 @@ const Feed: React.FC<FeedProps> = ({
         <div className="feed">
             <h2>Products</h2>
 
+            {/* Listing itemtypes for itemTypes filtering */}
             <ItemTypes handleFilteringDataChange={handleFilteringDataChange} />
 
+            {/* Listing all items. Changes with filtering api requests */}
             <div className="card">
                 <div className="container">
                     {display.map((item) => (
                         <Fragment key={item.slug}>
+                            {/* Product card which containes single item information */}
                             <ProductCard
                                 product={item}
                                 handleAddToBasket={handleAddToBasket}

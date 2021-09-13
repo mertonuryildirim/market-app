@@ -20,6 +20,7 @@ const BrandFiltering: React.FC<BrandFilteringProps> = ({
     return (
         <div className="card">
             <div className="container">
+                {/* Searching brands input */}
                 <input
                     className="filter-search"
                     placeholder="Search brand"
@@ -28,6 +29,7 @@ const BrandFiltering: React.FC<BrandFilteringProps> = ({
                     onChange={(e) => handleBrandsSearch(e)}
                 />
                 <div className="filter-overflow">
+                    {/* Listing companies. */}
                     {companies
                         .filter((company) =>
                             company.name

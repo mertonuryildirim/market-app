@@ -15,6 +15,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
     const [tempTagsData, setTempTagsData] = useState([]);
     const [tagsSearchValue, setTagsSearchValue] = useState('');
 
+    //Handle tags search value
     const handleTagsSearch = (e: any) => {
         setTagsSearchValue(e.target.value);
 
@@ -23,6 +24,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
         }
     };
 
+    //Tags filtering.
     useEffect(() => {
         setTagItems(
             tempTagsData.filter((tag: string) =>
@@ -33,6 +35,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
         );
     }, [tagsSearchValue, tempTagsData]);
 
+    //Code to find unique tag values when component renders
     useEffect(() => {
         const allTagItems: any = [];
 
@@ -54,6 +57,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
     return (
         <div className="card">
             <div className="container">
+                {/* Searching tags input */}
                 <input
                     className="filter-search"
                     placeholder="Search tag"
@@ -63,6 +67,7 @@ const TagFiltering: React.FC<TagFilteringProps> = ({
                     onChange={(e) => handleTagsSearch(e)}
                 />
                 <div className="filter-overflow">
+                    {/* Listing unique tag items. */}
                     {tagItems.map((tag: any) => (
                         <label key={tag} className="sort-checkbox">
                             {tag}

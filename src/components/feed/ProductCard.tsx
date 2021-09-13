@@ -16,6 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         imageAlt: '',
     });
 
+    //Handling product images for itemTypes
     const handleProductImage = () => {
         return product.itemType === 'mug'
             ? setProductImage({

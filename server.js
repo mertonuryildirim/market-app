@@ -1,3 +1,8 @@
+//JSON NODE SERVER
+//CURRENTLY LISTINES 8000 PORT
+//API CONF UTILS FOLDER
+//DB.JSON CONTAINS COMPANIES.JSON + ITEMS.JSON
+
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('./db.json');

@@ -20,10 +20,12 @@ const Basket: React.FC<BasketProps> = ({
             <h4>Basket</h4>
             <div className="card card-basket">
                 <div className="container">
+                    {/* List basket items when basketItems length greater than zero. Otherwise show empty basket message */}
                     {basketItems.length > 0 ? (
                         basketItems.map((product) => {
                             return (
                                 <Fragment key={product.product.slug}>
+                                    {/* Every basket item component. Containes basket item information & addToCart / removeFromCart Actions */}
                                     <BasketItems
                                         product={product}
                                         handleAddToBasket={handleAddToBasket}

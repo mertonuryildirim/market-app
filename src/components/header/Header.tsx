@@ -14,6 +14,7 @@ const Header: React.FC<HeaderProps> = ({ handleCalculateTotalPrice }) => {
             <div className="header-right">
                 <div>
                     <img src="./basket.svg" alt="Basket Icon" />
+                    {/* Header basket total amount */}
                     <span>₺ {handleCalculateTotalPrice()}</span>
                 </div>
             </div>
