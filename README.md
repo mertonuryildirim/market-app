@@ -1,6 +1,4 @@
-# This development branch is using for local starting react app
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# This dev branch is using for local starts
 
 ## JSON SERVER CONF
 
@@ -14,7 +12,7 @@ In the project directory, you can run:
 
 ### `yarn install`
 
-Install all dependencies for a project.\
+Install all dependencies for a project.
 
 ### `yarn start`
 
