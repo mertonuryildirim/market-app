@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Item } from '../../types/item';
 import './Feed.css';
 import ItemTypes from './ItemTypes';
 import ProductCard from './ProductCard';
-import { usePagination } from 'use-pagination-hook';
 import Pagination from 'rc-pagination';
 
 interface FeedProps {
@@ -19,12 +18,15 @@ const Feed: React.FC<FeedProps> = ({
     handlePaginationChange,
     handleAddToBasket,
 }) => {
-    const { current, display } = usePagination({
-        items: items,
-        size: 16,
-    });
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(16);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
     const handleChangePage = (current: number) => {
+        setCurrentPage(current);
         handlePaginationChange(current);
     };
 
@@ -38,7 +40,7 @@ const Feed: React.FC<FeedProps> = ({
             {/* Listing all items. Changes with filtering api requests */}
             <div className="card">
                 <div className="container">
-                    {display.map((item) => (
+                    {currentItems.map((item) => (
                         <Fragment key={item.slug}>
                             {/* Product card which containes single item information */}
                             <ProductCard
@@ -52,9 +54,9 @@ const Feed: React.FC<FeedProps> = ({
                 <div className="center">
                     <div className="pagination">
                         <Pagination
-                            current={current}
+                            current={currentPage}
                             total={items.length}
-                            defaultPageSize={16}
+                            defaultPageSize={itemsPerPage}
                             onChange={handleChangePage}
                             nextIcon="Next ->"
                             prevIcon="<- Prev"
