@@ -50,5 +50,8 @@
   },
   "devDependencies": {
     "@types/react-paginate": "^7.1.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
