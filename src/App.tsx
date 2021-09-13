@@ -144,7 +144,10 @@ const App: React.FC = () => {
     const handleCalculateTotalPrice = () => {
         if (basketItems.length > 0) {
             return basketItems
-                .reduce((total, item) => item.product.price + total, 0)
+                .reduce(
+                    (total, item) => item.product.price * item.quantity + total,
+                    0,
+                )
                 .toFixed(2);
         } else {
             return '0';
@@ -163,7 +166,7 @@ const App: React.FC = () => {
         <div className="app">
             {/* Header */}
             <Header handleCalculateTotalPrice={handleCalculateTotalPrice} />
-
+            12312
             {/* App Body */}
             <div className="app-body">
                 {/* Sidebar */}
@@ -188,7 +191,6 @@ const App: React.FC = () => {
                     handleCalculateTotalPrice={handleCalculateTotalPrice}
                 />
             </div>
-
             {/* Footer */}
             <Footer />
         </div>
