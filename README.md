@@ -1,4 +1,4 @@
-# This dev branch is using for local starts
+# Dev branch is using for local starts & development
 
 ## JSON SERVER CONF
 
