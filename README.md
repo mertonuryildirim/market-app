@@ -2,7 +2,7 @@
 
 ## JSON SERVER CONF
 
-Json server runs at https://market-app-assignment.herokuapp.com/api:
+Json server runs at https://market-app-assignment.herokuapp.com/api
 
 If you want to run json server locally you have to change /src/utils/api.ts "url" variable with your json-server running port.
 
