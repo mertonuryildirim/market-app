@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Company } from '../types/company';
 import { FilteringData, Item } from '../types/item';
 
-export const url = 'http://localhost:3003';
+export const url = 'https://market-app-assignment.herokuapp.com/api';
 
 export const instance = axios.create({
     baseURL: url,
