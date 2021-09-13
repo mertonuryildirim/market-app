@@ -21,10 +21,6 @@ const Feed: React.FC<FeedProps> = ({
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(16);
 
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
-
     const handleChangePage = (current: number) => {
         setCurrentPage(current);
         handlePaginationChange(current);
@@ -40,7 +36,7 @@ const Feed: React.FC<FeedProps> = ({
             {/* Listing all items. Changes with filtering api requests */}
             <div className="card">
                 <div className="container">
-                    {currentItems.map((item) => (
+                    {items.map((item) => (
                         <Fragment key={item.slug}>
                             {/* Product card which containes single item information */}
                             <ProductCard
