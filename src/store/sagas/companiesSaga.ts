@@ -6,6 +6,7 @@ import {
     getCompaniesSuccess,
 } from '../actions/companyActions';
 
+//worker saga.
 function* handleGetCompanies(): any {
     try {
         const response = yield call(getCompaniesService);
@@ -15,6 +16,7 @@ function* handleGetCompanies(): any {
     }
 }
 
+//watcher saga.
 export default function* watchGetCompaniesSaga() {
     yield all([
         takeLatest(companyActionTypes.GET_COMPANIES, handleGetCompanies),

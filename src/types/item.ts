@@ -1,5 +1,6 @@
 import { itemActionTypes } from '../store/actions/actionTypes';
 
+//Single Item type
 export interface Item {
     tags: string[];
     price: number;
@@ -11,32 +12,37 @@ export interface Item {
     itemType: string;
 }
 
+//Filtering Data Type. It uses for api query string params.
 export interface FilteringData {
     itemType: '' | 'mug' | 'shirt';
     sort: '' | 'added' | 'price';
     order: '' | 'asc' | 'desc';
-    manufacturer: string[]; //birden fazla olma durumu eksik.
+    manufacturer: string[];
     tags: string[];
     page: number;
     limit: number;
 }
 
+//Default item state
 export interface ItemState {
     items: Item[];
     loadingItem: boolean;
     errorItem: string;
 }
 
+//Action type for GET_ITEMS
 export interface GET_ITEMS {
     type: typeof itemActionTypes.GET_ITEMS;
     payload: FilteringData;
 }
 
+//Action type for GET_ITEMS_SUCCESS
 export interface GET_ITEMS_SUCCESS {
     type: typeof itemActionTypes.GET_ITEMS_SUCCESS;
     payload: Item[];
 }
 
+//Action type for GET_ITEMS_ERROR
 export interface GET_ITEMS_ERROR {
     type: typeof itemActionTypes.GET_ITEMS_ERROR;
 }

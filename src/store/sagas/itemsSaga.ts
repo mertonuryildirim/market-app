@@ -4,8 +4,10 @@ import { getItemsService } from '../../utils/api';
 import { itemActionTypes } from '../actions/actionTypes';
 import { getItemsError, getItemsSuccess } from '../actions/itemActions';
 
+//worker saga.
 function* handleGetItems(action: GET_ITEMS): any {
     try {
+        //getItemsService api request which retrieves filtering data query string param
         const response = yield call(getItemsService, action.payload);
         yield put(getItemsSuccess(response.data));
     } catch (error) {
@@ -13,6 +15,7 @@ function* handleGetItems(action: GET_ITEMS): any {
     }
 }
 
+//watcher saga.
 export default function* watchGetItemsSaga() {
     yield takeLatest(itemActionTypes.GET_ITEMS, handleGetItems);
 }
