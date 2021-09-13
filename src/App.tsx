@@ -166,7 +166,7 @@ const App: React.FC = () => {
         <div className="app">
             {/* Header */}
             <Header handleCalculateTotalPrice={handleCalculateTotalPrice} />
-            12312
+
             {/* App Body */}
             <div className="app-body">
                 {/* Sidebar */}
