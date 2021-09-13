@@ -42,7 +42,11 @@ const basketReducer = (
                     basketItem.product.slug === action.payload.product.slug,
             );
             if (state.basketItems[addedBasketItem].quantity > 1) {
-                console.log((state.basketItems[addedBasketItem].quantity -= 1));
+                state.basketItems[addedBasketItem].quantity -= 1;
+                return {
+                    ...state,
+                    basketItems: [...state.basketItems],
+                };
             } else {
                 return {
                     ...state,
@@ -52,7 +56,6 @@ const basketReducer = (
                     ),
                 };
             }
-            return state;
         default:
             return state;
     }
