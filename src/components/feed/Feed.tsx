@@ -55,7 +55,7 @@ const Feed: React.FC<FeedProps> = ({
                     <div className="pagination">
                         <Pagination
                             current={currentPage}
-                            total={items.length}
+                            total={1740}
                             defaultPageSize={itemsPerPage}
                             onChange={handleChangePage}
                             nextIcon="Next ->"

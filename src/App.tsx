@@ -40,7 +40,7 @@ const App: React.FC = () => {
         manufacturer: [],
         tags: [],
         page: 1,
-        limit: 1750,
+        limit: 16,
     });
 
     const handlePaginationChange = (pageNumber: number) => {
