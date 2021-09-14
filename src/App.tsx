@@ -5,6 +5,8 @@ import Basket from './components/basket/Basket';
 import Feed from './components/feed/Feed';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
+import BasketModal from './components/mobile/BasketModal';
+import FilterModal from './components/mobile/FilterModal';
 import Sidebar from './components/sidebar/Sidebar';
 import { addToBasket } from './store/actions/basketActions';
 import { getCompanies } from './store/actions/companyActions';
@@ -42,6 +44,24 @@ const App: React.FC = () => {
         page: 1,
         limit: 16,
     });
+    const [showBasketModal, setShowBasketModal] = useState(false);
+    const [showFilterModal, setShowFilterModal] = useState(false);
+
+    const handleOpenBasketModal = () => {
+        setShowBasketModal(true);
+    };
+
+    const handleCloseBasketModal = () => {
+        setShowBasketModal(false);
+    };
+
+    const handleOpenFilterModal = () => {
+        setShowFilterModal(true);
+    };
+
+    const handleCloseFilterModal = () => {
+        setShowFilterModal(false);
+    };
 
     const handlePaginationChange = (pageNumber: number) => {
         setFilteringData({
@@ -174,6 +194,19 @@ const App: React.FC = () => {
         dispatch(getItems(filteringData));
     }, [dispatch, filteringData]);
 
+    //Event Listener for closing modal at greater or equal 1002 pixel
+    useEffect(() => {
+        const handleCloseModals = () => {
+            if (window.innerWidth >= 1002) {
+                setShowBasketModal(false);
+                setShowFilterModal(false);
+            }
+        };
+
+        window.addEventListener('resize', handleCloseModals);
+        return () => window.removeEventListener('resize', handleCloseModals);
+    }, []);
+
     return (
         <div className="app">
             {/* Header */}
@@ -189,11 +222,22 @@ const App: React.FC = () => {
                 />
 
                 {/* Filtering Button For Mobile Screens */}
-                <button className="offcanvas-mobile-button filter-button offcanvas-mobile-button-visibility">
+                <button
+                    onClick={handleOpenFilterModal}
+                    className="offcanvas-mobile-button filter-button offcanvas-mobile-visibility-min"
+                >
                     <div>
                         <img src="./filter.svg" alt="Filter Icon" />
                     </div>
                 </button>
+                {/* Filtering Modal For Mobile Screens */}
+                <FilterModal
+                    companies={companies}
+                    items={items}
+                    handleFilteringDataChange={handleFilteringDataChange}
+                    showFilterModal={showFilterModal}
+                    handleCloseFilterModal={handleCloseFilterModal}
+                />
 
                 {/* Feed */}
                 <Feed
@@ -204,11 +248,25 @@ const App: React.FC = () => {
                 />
 
                 {/* Filtering Button For Mobile Screens */}
-                <button className="offcanvas-mobile-button basket-button offcanvas-mobile-button-visibility">
-                    <div>
-                        <img src="./basket.svg" alt="Basket Icon" />
-                    </div>
-                </button>
+                {basketItems.length > 0 && (
+                    <button
+                        onClick={handleOpenBasketModal}
+                        className="offcanvas-mobile-button basket-button offcanvas-mobile-visibility-min"
+                    >
+                        <div>
+                            <img src="./basket.svg" alt="Basket Icon" />
+                        </div>
+                    </button>
+                )}
+
+                {/* Basket Modal For Mobile Screens */}
+                <BasketModal
+                    basketItems={basketItems}
+                    handleAddToBasket={handleAddToBasket}
+                    handleCalculateTotalPrice={handleCalculateTotalPrice}
+                    showBasketModal={showBasketModal}
+                    handleCloseBasketModal={handleCloseBasketModal}
+                />
 
                 {/* Basket */}
                 <Basket

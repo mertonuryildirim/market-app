@@ -14,13 +14,13 @@
 }
 
 @media screen and (max-width: 1001px) {
-    .offcanvas-mobile-visibility {
+    .offcanvas-mobile-visibility-max {
         display: none;
     }
 }
 
 @media screen and (min-width: 1002px) {
-    .offcanvas-mobile-button-visibility {
+    .offcanvas-mobile-visibility-min {
         display: none;
     }
 }
@@ -76,6 +76,7 @@ h6 {
     flex-wrap: wrap;
     max-width: fit-content;
     margin-top: 15px;
+    min-width: -webkit-fill-available;
 }
 
 .card-basket {
@@ -109,7 +110,7 @@ h6 {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -118,6 +119,10 @@ h6 {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-display {
+    display: block;
 }
 
 .modal-content {
