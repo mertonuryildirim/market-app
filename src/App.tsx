@@ -188,6 +188,13 @@ const App: React.FC = () => {
                     handleFilteringDataChange={handleFilteringDataChange}
                 />
 
+                {/* Filtering Button For Mobile Screens */}
+                <button className="offcanvas-mobile-button filter-button offcanvas-mobile-button-visibility">
+                    <div>
+                        <img src="./filter.svg" alt="Filter Icon" />
+                    </div>
+                </button>
+
                 {/* Feed */}
                 <Feed
                     items={items}
@@ -195,6 +202,13 @@ const App: React.FC = () => {
                     handlePaginationChange={handlePaginationChange}
                     handleAddToBasket={handleAddToBasket}
                 />
+
+                {/* Filtering Button For Mobile Screens */}
+                <button className="offcanvas-mobile-button basket-button offcanvas-mobile-button-visibility">
+                    <div>
+                        <img src="./basket.svg" alt="Basket Icon" />
+                    </div>
+                </button>
 
                 {/* Basket */}
                 <Basket

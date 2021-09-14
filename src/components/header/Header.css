@@ -19,7 +19,6 @@
 .header-center > img {
     object-fit: contain;
     height: 40px;
-    margin-right: 10px;
 }
 
 .header-right {
