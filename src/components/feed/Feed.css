@@ -13,3 +13,17 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+@media screen and (max-width: 1001px) {
+    .feed {
+        flex: 1;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        min-width: fit-content;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

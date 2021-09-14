@@ -7,7 +7,7 @@ interface ItemTypesProps {
 
 const ItemTypes: React.FC<ItemTypesProps> = ({ handleFilteringDataChange }) => {
     return (
-        <div className="item-types">
+        <div className="item-types offcanvas-mobile-visibility">
             <button
                 name="itemType"
                 value="mug"

@@ -196,7 +196,7 @@ const App: React.FC = () => {
                     handleAddToBasket={handleAddToBasket}
                 />
 
-                {/* Widgets */}
+                {/* Basket */}
                 <Basket
                     basketItems={basketItems}
                     handleAddToBasket={handleAddToBasket}

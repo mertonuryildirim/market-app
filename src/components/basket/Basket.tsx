@@ -16,7 +16,7 @@ const Basket: React.FC<BasketProps> = ({
     handleCalculateTotalPrice,
 }) => {
     return (
-        <div className="basket">
+        <div className="basket offcanvas-mobile-visibility">
             <h4>Basket</h4>
             <div className="card card-basket">
                 <div className="container">

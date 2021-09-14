@@ -31,7 +31,11 @@ const Feed: React.FC<FeedProps> = ({
             <h2>Products</h2>
 
             {/* Listing itemtypes for itemTypes filtering */}
-            <ItemTypes handleFilteringDataChange={handleFilteringDataChange} />
+            <div className="offcanvas-mobile-visibility">
+                <ItemTypes
+                    handleFilteringDataChange={handleFilteringDataChange}
+                />
+            </div>
 
             {/* Listing all items. Changes with filtering api requests */}
             <div className="card">

@@ -18,7 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     handleFilteringDataChange,
 }) => {
     return (
-        <div className="sidebar">
+        <div className="sidebar offcanvas-mobile-visibility">
             <div className="sidebar-filters">
                 {/* Aside Sort Filtering */}
                 <div>
