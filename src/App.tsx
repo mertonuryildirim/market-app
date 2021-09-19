@@ -16,24 +16,8 @@ import { FilteringData, Item } from './types/item';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
-    //Items state.
-    //TODO: use missing state items
-    //eslint-disable-next-line
-    const { items, loadingItem, errorItem } = useSelector(
-        (state: AppState) => state.items,
-    );
-    //Companies state.
-    //TODO: use missing state items
-    //eslint-disable-next-line
-    const { companies, loadingCompany, errorCompany } = useSelector(
-        (state: AppState) => state.companies,
-    );
     //Basket Items state.
-    //TODO: use missing state items
-    //eslint-disable-next-line
-    const { basketItems, loadingBasket, errorBasket } = useSelector(
-        (state: AppState) => state.basketItems,
-    );
+    const { basketItems } = useSelector((state: AppState) => state.basketItems);
     //Filtering data managed from one state. Sends to getItems action. Used for items api query string params
     const [filteringData, setFilteringData] = useState<FilteringData>({
         itemType: '',
@@ -216,8 +200,6 @@ const App: React.FC = () => {
             <div className="app-body">
                 {/* Sidebar */}
                 <Sidebar
-                    companies={companies}
-                    items={items}
                     handleFilteringDataChange={handleFilteringDataChange}
                 />
 
@@ -232,8 +214,6 @@ const App: React.FC = () => {
                 </button>
                 {/* Filtering Modal For Mobile Screens */}
                 <FilterModal
-                    companies={companies}
-                    items={items}
                     handleFilteringDataChange={handleFilteringDataChange}
                     showFilterModal={showFilterModal}
                     handleCloseFilterModal={handleCloseFilterModal}
@@ -241,7 +221,6 @@ const App: React.FC = () => {
 
                 {/* Feed */}
                 <Feed
-                    items={items}
                     handleFilteringDataChange={handleFilteringDataChange}
                     handlePaginationChange={handlePaginationChange}
                     handleAddToBasket={handleAddToBasket}
@@ -261,7 +240,6 @@ const App: React.FC = () => {
 
                 {/* Basket Modal For Mobile Screens */}
                 <BasketModal
-                    basketItems={basketItems}
                     handleAddToBasket={handleAddToBasket}
                     handleCalculateTotalPrice={handleCalculateTotalPrice}
                     showBasketModal={showBasketModal}
@@ -270,7 +248,6 @@ const App: React.FC = () => {
 
                 {/* Basket */}
                 <Basket
-                    basketItems={basketItems}
                     handleAddToBasket={handleAddToBasket}
                     handleCalculateTotalPrice={handleCalculateTotalPrice}
                 />

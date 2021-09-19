@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { BasketItem } from '../../types/basket';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/reducers';
 import { Item } from '../../types/item';
 import BasketItems from '../basket/BasketItems';
 
 interface BasketModalProps {
     handleAddToBasket: (product: Item) => void;
-    basketItems: BasketItem[];
     handleCalculateTotalPrice: () => void;
     showBasketModal: boolean;
     handleCloseBasketModal: () => void;
@@ -13,11 +13,12 @@ interface BasketModalProps {
 
 const BasketModal: React.FC<BasketModalProps> = ({
     handleAddToBasket,
-    basketItems,
     handleCalculateTotalPrice,
     showBasketModal,
     handleCloseBasketModal,
 }) => {
+    const { basketItems } = useSelector((state: AppState) => state.basketItems);
+
     return (
         <div>
             {showBasketModal && (

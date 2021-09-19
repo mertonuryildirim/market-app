@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Company } from '../../types/company';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/reducers';
 import './Sidebar.css';
 
 interface BrandFilteringProps {
-    companies: Company[];
     handleFilteringDataChange: (e: any) => void;
 }
 
 const BrandFiltering: React.FC<BrandFilteringProps> = ({
-    companies,
     handleFilteringDataChange,
 }) => {
+    const { companies } = useSelector((state: AppState) => state.companies);
     const [brandsSearchValue, setBrandsSearchValue] = useState('');
 
     const handleBrandsSearch = (e: any) => {

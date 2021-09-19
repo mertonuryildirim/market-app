@@ -1,20 +1,21 @@
 import React, { Fragment } from 'react';
-import { BasketItem } from '../../types/basket';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/reducers';
 import { Item } from '../../types/item';
 import './Basket.css';
 import BasketItems from './BasketItems';
 
 interface BasketProps {
     handleAddToBasket: (product: Item) => void;
-    basketItems: BasketItem[];
     handleCalculateTotalPrice: () => void;
 }
 
 const Basket: React.FC<BasketProps> = ({
     handleAddToBasket,
-    basketItems,
     handleCalculateTotalPrice,
 }) => {
+    const { basketItems } = useSelector((state: AppState) => state.basketItems);
+
     return (
         <div className="basket offcanvas-mobile-visibility-max">
             <h4>Basket</h4>

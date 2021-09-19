@@ -1,22 +1,16 @@
 import React from 'react';
-import { Company } from '../../types/company';
-import { Item } from '../../types/item';
 import ItemTypes from '../feed/ItemTypes';
 import BrandFiltering from '../sidebar/BrandFiltering';
 import SortFiltering from '../sidebar/SortFiltering';
 import TagFiltering from '../sidebar/TagFiltering';
 
 interface FilterModalProps {
-    companies: Company[];
-    items: Item[];
     handleFilteringDataChange: (e: any) => void;
     showFilterModal: boolean;
     handleCloseFilterModal: () => void;
 }
 
 const FilterModal: React.FC<FilterModalProps> = ({
-    companies,
-    items,
     handleFilteringDataChange,
     showFilterModal,
     handleCloseFilterModal,
@@ -59,7 +53,6 @@ const FilterModal: React.FC<FilterModalProps> = ({
                             <div>
                                 <h5>Brands</h5>
                                 <BrandFiltering
-                                    companies={companies}
                                     handleFilteringDataChange={
                                         handleFilteringDataChange
                                     }
@@ -70,7 +63,6 @@ const FilterModal: React.FC<FilterModalProps> = ({
                             <div>
                                 <h5>Tags</h5>
                                 <TagFiltering
-                                    items={items}
                                     handleFilteringDataChange={
                                         handleFilteringDataChange
                                     }

@@ -1,22 +1,14 @@
 import React from 'react';
-import { Company } from '../../types/company';
-import { Item } from '../../types/item';
 import BrandFiltering from './BrandFiltering';
 import './Sidebar.css';
 import SortFiltering from './SortFiltering';
 import TagFiltering from './TagFiltering';
 
 interface SidebarProps {
-    companies: Company[];
-    items: Item[];
     handleFilteringDataChange: (e: any) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-    companies,
-    items,
-    handleFilteringDataChange,
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ handleFilteringDataChange }) => {
     return (
         <div className="sidebar offcanvas-mobile-visibility-max">
             <div className="sidebar-filters">
@@ -32,7 +24,6 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <div>
                     <h5>Brands</h5>
                     <BrandFiltering
-                        companies={companies}
                         handleFilteringDataChange={handleFilteringDataChange}
                     />
                 </div>
@@ -41,7 +32,6 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <div>
                     <h5>Tags</h5>
                     <TagFiltering
-                        items={items}
                         handleFilteringDataChange={handleFilteringDataChange}
                     />
                 </div>

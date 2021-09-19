@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Item } from '../../types/item';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/reducers';
 import './Sidebar.css';
 
 interface TagFilteringProps {
-    items: Item[];
     handleFilteringDataChange: (e: any) => void;
 }
 
 const TagFiltering: React.FC<TagFilteringProps> = ({
-    items,
     handleFilteringDataChange,
 }) => {
+    const { items } = useSelector((state: AppState) => state.items);
     const [tagItems, setTagItems] = useState([]);
     const [tempTagsData, setTempTagsData] = useState([]);
     const [tagsSearchValue, setTagsSearchValue] = useState('');
