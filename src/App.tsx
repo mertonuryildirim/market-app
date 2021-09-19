@@ -14,20 +14,23 @@ import { getItems } from './store/actions/itemActions';
 import { AppState } from './store/reducers';
 import { FilteringData, Item } from './types/item';
 
+const initialFilteringData: FilteringData = {
+    itemType: '',
+    sort: '',
+    order: '',
+    manufacturer: [],
+    tags: [],
+    page: 1,
+    limit: 16,
+};
+
 const App: React.FC = () => {
     const dispatch = useDispatch();
     //Basket Items state.
     const { basketItems } = useSelector((state: AppState) => state.basketItems);
     //Filtering data managed from one state. Sends to getItems action. Used for items api query string params
-    const [filteringData, setFilteringData] = useState<FilteringData>({
-        itemType: '',
-        sort: '',
-        order: '',
-        manufacturer: [],
-        tags: [],
-        page: 1,
-        limit: 16,
-    });
+    const [filteringData, setFilteringData] =
+        useState<FilteringData>(initialFilteringData);
     const [showBasketModal, setShowBasketModal] = useState(false);
     const [showFilterModal, setShowFilterModal] = useState(false);
 
@@ -55,7 +58,6 @@ const App: React.FC = () => {
         });
     };
 
-    //TODO: Refactor the code
     // Update filtering data by name of sidebar form elements
     const handleFilteringDataChange = (e: any) => {
         if (e.target.name === 'sortPriceAsc') {
@@ -65,15 +67,7 @@ const App: React.FC = () => {
                       sort: 'price',
                       order: 'asc',
                   })
-                : setFilteringData({
-                      itemType: '',
-                      sort: '',
-                      order: '',
-                      manufacturer: [],
-                      tags: [],
-                      page: 1,
-                      limit: 16,
-                  });
+                : setFilteringData(initialFilteringData);
         } else if (e.target.name === 'sortPriceDesc') {
             e.target.checked
                 ? setFilteringData({
@@ -81,15 +75,7 @@ const App: React.FC = () => {
                       sort: 'price',
                       order: 'desc',
                   })
-                : setFilteringData({
-                      itemType: '',
-                      sort: '',
-                      order: '',
-                      manufacturer: [],
-                      tags: [],
-                      page: 1,
-                      limit: 16,
-                  });
+                : setFilteringData(initialFilteringData);
         } else if (e.target.name === 'sortAddedAsc') {
             e.target.checked
                 ? setFilteringData({
@@ -97,15 +83,7 @@ const App: React.FC = () => {
                       sort: 'added',
                       order: 'asc',
                   })
-                : setFilteringData({
-                      itemType: '',
-                      sort: '',
-                      order: '',
-                      manufacturer: [],
-                      tags: [],
-                      page: 1,
-                      limit: 16,
-                  });
+                : setFilteringData(initialFilteringData);
         } else if (e.target.name === 'sortAddedDesc') {
             e.target.checked
                 ? setFilteringData({
@@ -113,15 +91,7 @@ const App: React.FC = () => {
                       sort: 'added',
                       order: 'desc',
                   })
-                : setFilteringData({
-                      itemType: '',
-                      sort: '',
-                      order: '',
-                      manufacturer: [],
-                      tags: [],
-                      page: 1,
-                      limit: 16,
-                  });
+                : setFilteringData(initialFilteringData);
         } else if (e.target.name === 'itemType') {
             setFilteringData({
                 ...filteringData,
