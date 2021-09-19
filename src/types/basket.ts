@@ -1,7 +1,7 @@
 import { basketActionTypes } from '../store/actions/actionTypes';
 import { Item } from './item';
 
-//Basket item to for sending actions. ADD_TO_BASKET & REMOVE_FROM_BASKET
+//Basket item for sending actions. ADD_TO_BASKET & REMOVE_FROM_BASKET
 export interface BasketItem {
     quantity: number;
     product: Item;
