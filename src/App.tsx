@@ -72,7 +72,7 @@ const App: React.FC = () => {
                       manufacturer: [],
                       tags: [],
                       page: 1,
-                      limit: 1750,
+                      limit: 16,
                   });
         } else if (e.target.name === 'sortPriceDesc') {
             e.target.checked
@@ -88,7 +88,7 @@ const App: React.FC = () => {
                       manufacturer: [],
                       tags: [],
                       page: 1,
-                      limit: 1750,
+                      limit: 16,
                   });
         } else if (e.target.name === 'sortAddedAsc') {
             e.target.checked
@@ -104,7 +104,7 @@ const App: React.FC = () => {
                       manufacturer: [],
                       tags: [],
                       page: 1,
-                      limit: 1750,
+                      limit: 16,
                   });
         } else if (e.target.name === 'sortAddedDesc') {
             e.target.checked
@@ -120,7 +120,7 @@ const App: React.FC = () => {
                       manufacturer: [],
                       tags: [],
                       page: 1,
-                      limit: 1750,
+                      limit: 16,
                   });
         } else if (e.target.name === 'itemType') {
             setFilteringData({
