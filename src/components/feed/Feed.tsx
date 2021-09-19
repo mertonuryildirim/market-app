@@ -18,6 +18,7 @@ const Feed: React.FC<FeedProps> = ({
     handlePaginationChange,
     handleAddToBasket,
 }) => {
+    //Items state
     const { items } = useSelector((state: AppState) => state.items);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(16);
@@ -52,6 +53,7 @@ const Feed: React.FC<FeedProps> = ({
                     ))}
                 </div>
 
+                {/* Pagination */}
                 <div className="center">
                     <div className="pagination">
                         <Pagination

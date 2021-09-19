@@ -10,6 +10,7 @@ interface TagFilteringProps {
 const TagFiltering: React.FC<TagFilteringProps> = ({
     handleFilteringDataChange,
 }) => {
+    //Items state
     const { items } = useSelector((state: AppState) => state.items);
     const [tagItems, setTagItems] = useState([]);
     const [tempTagsData, setTempTagsData] = useState([]);

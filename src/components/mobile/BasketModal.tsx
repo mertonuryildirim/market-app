@@ -17,6 +17,7 @@ const BasketModal: React.FC<BasketModalProps> = ({
     showBasketModal,
     handleCloseBasketModal,
 }) => {
+    //Basket Items State
     const { basketItems } = useSelector((state: AppState) => state.basketItems);
 
     return (

@@ -14,6 +14,7 @@ const Basket: React.FC<BasketProps> = ({
     handleAddToBasket,
     handleCalculateTotalPrice,
 }) => {
+    //Basket Items State
     const { basketItems } = useSelector((state: AppState) => state.basketItems);
 
     return (
@@ -38,6 +39,7 @@ const Basket: React.FC<BasketProps> = ({
                         <>There are no items in your basket.!</>
                     )}
 
+                    {/* Basket total amount */}
                     <div className="basket-total-price">
                         ₺ {handleCalculateTotalPrice()}
                     </div>

@@ -10,6 +10,7 @@ interface BrandFilteringProps {
 const BrandFiltering: React.FC<BrandFilteringProps> = ({
     handleFilteringDataChange,
 }) => {
+    //Companies state
     const { companies } = useSelector((state: AppState) => state.companies);
     const [brandsSearchValue, setBrandsSearchValue] = useState('');
 

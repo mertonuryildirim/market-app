@@ -47,6 +47,7 @@ const App: React.FC = () => {
         setShowFilterModal(false);
     };
 
+    //Handle pagination, set page number for filteringData state
     const handlePaginationChange = (pageNumber: number) => {
         setFilteringData({
             ...filteringData,
@@ -54,8 +55,8 @@ const App: React.FC = () => {
         });
     };
 
-    // Update filtering data by name of sidebar form elements
     //TODO: Refactor the code
+    // Update filtering data by name of sidebar form elements
     const handleFilteringDataChange = (e: any) => {
         if (e.target.name === 'sortPriceAsc') {
             e.target.checked
@@ -212,6 +213,7 @@ const App: React.FC = () => {
                         <img src="./filter.svg" alt="Filter Icon" />
                     </div>
                 </button>
+
                 {/* Filtering Modal For Mobile Screens */}
                 <FilterModal
                     handleFilteringDataChange={handleFilteringDataChange}
@@ -252,6 +254,7 @@ const App: React.FC = () => {
                     handleCalculateTotalPrice={handleCalculateTotalPrice}
                 />
             </div>
+
             {/* Footer */}
             <Footer />
         </div>
